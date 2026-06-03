@@ -709,6 +709,10 @@ export default function App() {
   const [nextScenario, setNextScenario] = useState<Scenario | null>(null);
   const [isGameFinished, setIsGameFinished] = useState<boolean>(false);
   const [devForcedEnding, setDevForcedEnding] = useState<any>(null);
+  const [showEndingCardModal, setShowEndingCardModal] = useState<boolean>(false);
+  const [animationStage, setAnimationStage] = useState<number>(0);
+  const [rollingScore, setRollingScore] = useState<number>(0);
+  const [flashActive, setFlashActive] = useState<boolean>(false);
 
   const handleDevRandomEnding = () => {
     console.log("DEV Random Ending Triggered");
@@ -1013,6 +1017,152 @@ export default function App() {
     }
   }, [user]);
 
+  // Check Game State Ending Condition
+  const checkGameOver = () => {
+    const dangerLimit = 15;
+    
+    // Check defeats (Only active during gameplay before 12 turns are completed)
+    if (!isGameFinished && history.length < 12) {
+      if (stats.economy <= dangerLimit) return { type: "defeat", stat: "經濟", desc: "經濟陷入大衰退，華爾街暴跌陷入歷史冰點，高通膨引發民怨四起，川普內閣將你遣散..." };
+      if (stats.military <= dangerLimit) return { type: "defeat", stat: "軍事", desc: "國防威懾力不足，海外軍事基地爆發衝突失控，白宮聯參會議對你下達不信任案..." };
+      if (stats.diplomacy <= dangerLimit) return { type: "defeat", stat: "外交", desc: "美國陷入前所未有的國際外交孤立，世國同盟全面解體，主流媒體直斥顧問决策低能..." };
+      if (stats.publicOpinion <= dangerLimit) return { type: "defeat", stat: "民意", desc: "民調支持率崩盤。群眾聚集在白宮外示威，川普決定在社交平台發文宣布開除你..." };
+      if (stats.industry <= dangerLimit) return { type: "defeat", stat: "產業", desc: "本土關鍵高科技與製造業遭遇全面性空心化，高能耗高物價致使工廠停擺..." };
+      if (stats.market <= dangerLimit) return { type: "defeat", stat: "關市", desc: "邊境關卡與對外港口大亂，非法跨境和進口假貨充斥，關稅政策完全垮台..." };
+    }
+
+    // Check final victories (Survive 12 turns or marked finished)
+    if (isGameFinished || history.length >= 12) {
+      const ending = getEnding({ stats, history, turn });
+      return {
+        type: "victory",
+        isFinalEnding: true,
+        title: ending.title,
+        icon: ending.icon,
+        rating: ending.rating,
+        desc: ending.desc,
+        color: ending.color,
+        ratingColor: ending.ratingColor,
+        stats: stats
+      };
+    }
+
+    return null;
+  };
+
+  const activeEnding = devForcedEnding || checkGameOver();
+
+  // Cinematic interactive ending presentation timeline
+  useEffect(() => {
+    if (!showEndingCardModal || !activeEnding) {
+      setAnimationStage(0);
+      setRollingScore(0);
+      setFlashActive(false);
+      return;
+    }
+
+    // Step 1: MISSION COMPLETE starts instantly
+    setAnimationStage(1);
+    setRollingScore(0);
+    setFlashActive(false);
+
+    let frameId: number | null = null;
+    let t1: any = null;
+    let t2: any = null;
+    let t3: any = null;
+    let t4: any = null;
+    let t5: any = null;
+
+    // Transition Stage 1 -> Step 2: CALCULATING PRESIDENT SCORE (lasts 1s)
+    t1 = setTimeout(() => {
+      setAnimationStage(2);
+    }, 1100);
+
+    // Transition Stage 2 -> Step 3: SCORE ROLLING (starts after 1s calculated)
+    t2 = setTimeout(() => {
+      setAnimationStage(3);
+
+      const statsObj = activeEnding.stats || { economy: 50, military: 50, diplomacy: 50, publicOpinion: 50, industry: 50, market: 50 };
+      const finalScoreValue = Math.round(
+        (statsObj.economy +
+          statsObj.military +
+          statsObj.diplomacy +
+          statsObj.publicOpinion +
+          statsObj.industry +
+          statsObj.market) /
+          6
+      );
+
+      const startTime = Date.now();
+      const duration = 2000; // 2 seconds fast score roll
+
+      const animateScore = () => {
+        const now = Date.now();
+        const elapsed = now - startTime;
+
+        if (elapsed >= duration) {
+          setRollingScore(finalScoreValue);
+          
+          // Move to Stage 4: Flash & Glow explosion
+          setFlashActive(true);
+          setAnimationStage(4);
+
+          // Settle flash state
+          setTimeout(() => setFlashActive(false), 300);
+
+          // Transition Stage 4 -> Stage 5: GRADE DROP
+          t3 = setTimeout(() => {
+            setAnimationStage(5);
+
+            // Transition Stage 5 -> Stage 6: TITLE FLOAT
+            t4 = setTimeout(() => {
+              setAnimationStage(6);
+
+              // Transition Stage 6 -> Stage 7: SHARING CARD DISCOVERED
+              t5 = setTimeout(() => {
+                setAnimationStage(7);
+              }, 1200);
+            }, 1200);
+          }, 1005);
+        } else {
+          const ratio = Math.min(elapsed / duration, 1);
+          // quadratic ease out
+          const curvedRatio = ratio * (2 - ratio);
+          setRollingScore(Math.floor(curvedRatio * finalScoreValue));
+          frameId = requestAnimationFrame(animateScore);
+        }
+      };
+
+      frameId = requestAnimationFrame(animateScore);
+    }, 2200);
+
+    return () => {
+      if (t1) clearTimeout(t1);
+      if (t2) clearTimeout(t2);
+      if (t3) clearTimeout(t3);
+      if (t4) clearTimeout(t4);
+      if (t5) clearTimeout(t5);
+      if (frameId) cancelAnimationFrame(frameId);
+    };
+  }, [showEndingCardModal, activeEnding]);
+
+  const skipEndingCardAnimation = () => {
+    if (!activeEnding) return;
+    const statsObj = activeEnding.stats || { economy: 50, military: 50, diplomacy: 50, publicOpinion: 50, industry: 50, market: 50 };
+    const finalScoreValue = Math.round(
+      (statsObj.economy +
+        statsObj.military +
+        statsObj.diplomacy +
+        statsObj.publicOpinion +
+        statsObj.industry +
+        statsObj.market) /
+        6
+    );
+    setRollingScore(finalScoreValue);
+    setFlashActive(false);
+    setAnimationStage(7);
+  };
+
   if (authLoading) {
     return (
       <div className="bg-[#080b11] text-gray-200 min-h-screen flex flex-col items-center justify-center gap-3">
@@ -1115,6 +1265,7 @@ export default function App() {
         
         // Reset ending and devForcedEnding
         setDevForcedEnding(null);
+        setShowEndingCardModal(false);
         setReport(null);
         setIsGeneratingReport(false);
 
@@ -1435,41 +1586,6 @@ export default function App() {
     setGeneratedNews(null);
     setNextScenario(null);
   };
-
-  // Check Game State Ending Condition
-  const checkGameOver = () => {
-    const dangerLimit = 15;
-    
-    // Check defeats (Only active during gameplay before 12 turns are completed)
-    if (!isGameFinished && history.length < 12) {
-      if (stats.economy <= dangerLimit) return { type: "defeat", stat: "經濟", desc: "經濟陷入大衰退，華爾街暴跌陷入歷史冰點，高通膨引發民怨四起，川普內閣將你遣散..." };
-      if (stats.military <= dangerLimit) return { type: "defeat", stat: "軍事", desc: "國防威懾力不足，海外軍事基地爆發衝突失控，白宮聯參會議對你下達不信任案..." };
-      if (stats.diplomacy <= dangerLimit) return { type: "defeat", stat: "外交", desc: "美國陷入前所未有的國際外交孤立，世國同盟全面解體，主流媒體直斥顧問决策低能..." };
-      if (stats.publicOpinion <= dangerLimit) return { type: "defeat", stat: "民意", desc: "民調支持率崩盤。群眾聚集在白宮外示威，川普決定在社交平台發文宣布開除你..." };
-      if (stats.industry <= dangerLimit) return { type: "defeat", stat: "產業", desc: "本土關鍵高科技與製造業遭遇全面性空心化，高能耗高物價致使工廠停擺..." };
-      if (stats.market <= dangerLimit) return { type: "defeat", stat: "關市", desc: "邊境關卡與對外港口大亂，非法跨境和進口假貨充斥，關稅政策完全垮台..." };
-    }
-
-    // Check final victories (Survive 12 turns or marked finished)
-    if (isGameFinished || history.length >= 12) {
-      const ending = getEnding({ stats, history, turn });
-      return {
-        type: "victory",
-        isFinalEnding: true,
-        title: ending.title,
-        icon: ending.icon,
-        rating: ending.rating,
-        desc: ending.desc,
-        color: ending.color,
-        ratingColor: ending.ratingColor,
-        stats: stats
-      };
-    }
-
-    return null;
-  };
-
-  const activeEnding = devForcedEnding || checkGameOver();
 
   // Generate Email Draft Strategic Brief via server endpoint
   const handleOpenEmailModal = async () => {
@@ -2949,11 +3065,11 @@ export default function App() {
                         重新挑戰
                       </button>
                       <button
-                        onClick={exportEndingCard}
+                        onClick={() => setShowEndingCardModal(true)}
                         className="flex-1 py-4 md:py-5 bg-slate-800 border-2 border-slate-700 hover:bg-slate-700 font-black text-sm md:text-base text-white uppercase tracking-widest rounded-xl transition-all cursor-pointer active:scale-95 flex items-center justify-center gap-2"
                       >
-                        <Send className="w-5 h-5" />
-                        匯出結局分享卡
+                        <Eye className="w-5 h-5 text-amber-400" />
+                        查看結局分享卡
                       </button>
                     </div>
 
@@ -4451,6 +4567,424 @@ export default function App() {
                 </button>
               </div>
             </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ── ENDING CARD SHARED MODAL (結局分享卡) ── */}
+      <AnimatePresence>
+        {showEndingCardModal && activeEnding && (
+          <div 
+            id="ending-card-backdrop" 
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+            onClick={() => setShowEndingCardModal(false)}
+          >
+            {/* Custom injected keyframes stylesheet for cinematic shake and particle trails */}
+            <style dangerouslySetInnerHTML={{ __html: `
+              @keyframes customShake {
+                0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                10% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+                20% { transform: translate(-4px, 1px) rotate(0.5deg); }
+                30% { transform: translate(2px, 3px) rotate(0deg); }
+                40% { transform: translate(1px, -1px) rotate(0.5deg); }
+                50% { transform: translate(-1px, 2px) rotate(-0.5deg); }
+                60% { transform: translate(-3px, -1px) rotate(0deg); }
+                75% { transform: translate(3px, 1px) rotate(0.5deg); }
+                85% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+              }
+              @keyframes particleFloat {
+                0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0; }
+                50% { opacity: 0.8; }
+                100% { transform: translateY(-100px) scale(0.4) rotate(180deg); opacity: 0; }
+              }
+              .animate-custom-shake {
+                animation: customShake 0.15s infinite;
+              }
+            ` }} />
+
+            {/* Skip Button (visible during cinematic phases 1-6) */}
+            {animationStage < 7 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  skipEndingCardAnimation();
+                }}
+                className="fixed top-6 right-6 z-50 px-5 py-2.5 bg-black/60 hover:bg-black/80 active:scale-95 text-xs text-[#f5a623] hover:text-white font-bold rounded-full transition-all flex items-center gap-2 cursor-pointer border border-amber-500/20 shadow-lg"
+              >
+                跳過動畫 Skip <ArrowRight className="w-3.5 h-3.5 animate-pulse" />
+              </button>
+            )}
+
+            {/* ── CINEMATIC PHASES SCREEN ── */}
+            {animationStage < 7 ? (
+              <div 
+                className={`w-full max-w-lg min-h-[400px] flex flex-col items-center justify-center p-8 relative overflow-hidden select-none text-white ${
+                  activeEnding && Math.round((activeEnding.stats.economy + activeEnding.stats.military + activeEnding.stats.diplomacy + activeEnding.stats.publicOpinion + activeEnding.stats.industry + activeEnding.stats.market) / 6) < 40
+                    ? "animate-custom-shake"
+                    : ""
+                }`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Gold particles background for High Scores */}
+                {activeEnding && Math.round((activeEnding.stats.economy + activeEnding.stats.military + activeEnding.stats.diplomacy + activeEnding.stats.publicOpinion + activeEnding.stats.industry + activeEnding.stats.market) / 6) >= 90 && (
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-55">
+                    {[...Array(15)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute rounded bg-amber-400 opacity-60"
+                        style={{
+                          width: `${Math.random() * 5 + 3}px`,
+                          height: `${Math.random() * 5 + 3}px`,
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 70 + 20}%`,
+                          animation: `particleFloat ${Math.random() * 3 + 3}s infinite`,
+                          animationDelay: `${Math.random() * 3}s`,
+                          filter: "blur(0.5px)",
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {/* Red warning backgrounds for Low Scores */}
+                {activeEnding && Math.round((activeEnding.stats.economy + activeEnding.stats.military + activeEnding.stats.diplomacy + activeEnding.stats.publicOpinion + activeEnding.stats.industry + activeEnding.stats.market) / 6) < 40 && (
+                  <div className="absolute inset-0 bg-red-950/20 flex flex-col justify-between p-4 pointer-events-none opacity-40">
+                    <div className="text-red-500 font-mono text-[9px] font-bold tracking-widest text-center">SYSTEM ALARM: IMPEACHMENT & CABINET COLLAPSE</div>
+                    <div className="text-red-500 font-mono text-[9px] font-bold tracking-widest text-center">SYSTEM ALARM: IMPEACHMENT & CABINET COLLAPSE</div>
+                  </div>
+                )}
+
+                {/* Ambient vignette */}
+                <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black pointer-events-none" />
+
+                {/* Step 1: MISSION COMPLETE */}
+                {animationStage === 1 && (
+                  <motion.div
+                    key="stage-1"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
+                    className="flex flex-col items-center justify-center text-center z-10"
+                  >
+                    <div className="text-[11px] tracking-[0.35em] text-[#f5a623] font-mono font-black uppercase mb-3">
+                      PRESIDENTIAL SIMULATION COMPLETION
+                    </div>
+                    <div className="text-4xl md:text-5xl font-black tracking-[0.1em] text-white uppercase drop-shadow-[0_0_20px_rgba(245,158,11,0.6)] border-y-2 border-amber-500/30 py-4 px-10 relative font-sans">
+                      <span className="absolute -left-1.5 -top-1 font-mono text-base text-amber-500">[</span>
+                      MISSION COMPLETE
+                      <span className="absolute -right-1.5 -bottom-1 font-mono text-base text-amber-500">]</span>
+                    </div>
+                    <div className="text-[11px] text-slate-400 mt-4 tracking-wider uppercase font-bold font-mono">
+                      策略歷史推演任務全案完成
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Step 2: CALCULATING PRESIDENT SCORE */}
+                {animationStage === 2 && (
+                  <motion.div
+                    key="stage-2"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="flex flex-col items-center justify-center text-center z-10"
+                  >
+                    <div className="w-14 h-14 rounded-full border-4 border-amber-500/20 border-t-[#f5a623] animate-spin mb-6" />
+                    <div className="text-xl md:text-2xl font-black text-white tracking-widest uppercase mb-1.5 font-sans">
+                      CALCULATING PRESIDENT SCORE
+                    </div>
+                    <div className="text-xs font-mono text-slate-400 tracking-[0.15em]">
+                      歷史評估進程中，計算總統施政得分...
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Step 3 & 4: SCORE ROLLING & FLASH SPEED */}
+                {(animationStage === 3 || animationStage === 4) && (
+                  <motion.div
+                    key="stage-3-4"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="flex flex-col items-center justify-center text-center z-10 relative"
+                  >
+                    {/* Absolute White flash screen overlay on Stage 4 stop */}
+                    {flashActive && (
+                      <motion.div
+                        initial={{ opacity: 0.85 }}
+                        animate={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 bg-white z-40 pointer-events-none"
+                      />
+                    )}
+
+                    <div className="text-[10px] tracking-[0.2em] text-slate-400 font-mono font-bold uppercase mb-4">
+                      PRESIDENTIAL SUM • 國家元首施政綜合評估
+                    </div>
+
+                    <motion.div
+                      animate={animationStage === 4 ? { scale: [1, 1.35, 1], filter: ["brightness(1)", "brightness(2.2)", "brightness(1)"] } : {}}
+                      transition={{ type: "spring", stiffness: 150, damping: 10 }}
+                      className={`text-8xl md:text-9xl font-black font-mono transition-all duration-300 drop-shadow-[0_0_20px_rgba(245,158,11,0.5)] ${
+                        rollingScore >= 90 ? "text-[#f5a623]" : rollingScore < 40 ? "text-red-500" : "text-white"
+                      }`}
+                    >
+                      {rollingScore}
+                    </motion.div>
+
+                    <div className="text-sm font-bold tracking-widest text-[#f5a623] mt-5 uppercase">
+                      {animationStage === 3 ? "COMPILING FINAL CABINET INDEX..." : "FINAL RATING LOCKED"}
+                    </div>
+
+                    {/* FAILED WARN for low score */}
+                    {rollingScore < 40 && animationStage === 4 && (
+                      <div className="mt-4 px-4 py-1.5 bg-red-950/80 border border-red-500/35 rounded text-red-400 font-black tracking-widest text-xs animate-bounce flex items-center gap-1">
+                        ⚠️ WARNING: FAILED PRESIDENCY
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+
+                {/* Step 5: GRADE DROP CODES */}
+                {animationStage === 5 && (
+                  <motion.div
+                    key="stage-5"
+                    initial={{ y: -250, opacity: 0, scale: 0.4 }}
+                    animate={{ y: 0, opacity: 1, scale: 1 }}
+                    transition={{ type: "spring", damping: 12, stiffness: 110 }}
+                    className="flex flex-col items-center justify-center text-center z-10"
+                  >
+                    <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-4 font-mono font-bold">
+                      WHITE HOUSE DECISION CLASS • 施政績效評等
+                    </div>
+
+                    {(() => {
+                      const finalScore = Math.round((activeEnding.stats.economy + activeEnding.stats.military + activeEnding.stats.diplomacy + activeEnding.stats.publicOpinion + activeEnding.stats.industry + activeEnding.stats.market) / 6);
+                      let gradeLabel = "A級";
+                      let styleGlowAndBorder = "shadow-[0_0_25px_rgba(245,158,11,0.45)] border-[#f5a623]/60 text-[#f5a623]";
+                      if (finalScore >= 90) {
+                        gradeLabel = "S級";
+                        styleGlowAndBorder = "shadow-[0_0_35px_rgba(245,158,11,0.85)] border-amber-400 text-amber-300 animate-pulse";
+                      } else if (finalScore >= 80) {
+                        gradeLabel = "A級";
+                        styleGlowAndBorder = "shadow-[0_0_25px_rgba(245,158,11,0.5)] border-amber-500 text-amber-400";
+                      } else if (finalScore >= 70) {
+                        gradeLabel = "B級";
+                        styleGlowAndBorder = "shadow-[0_0_15px_rgba(59,130,246,0.35)] border-blue-500 text-blue-400";
+                      } else if (finalScore >= 60) {
+                        gradeLabel = "C級";
+                        styleGlowAndBorder = "shadow-[0_0_10px_rgba(168,85,247,0.25)] border-purple-500 text-purple-400";
+                      } else if (finalScore >= 40) {
+                        gradeLabel = "失敗級";
+                        styleGlowAndBorder = "shadow-[0_0_10px_rgba(249,115,22,0.25)] border-orange-500 text-orange-400";
+                      } else {
+                        gradeLabel = "災難級";
+                        styleGlowAndBorder = "shadow-[0_0_20px_rgba(239,68,68,0.55)] border-red-500 text-red-500 animate-[pulse_1s_infinite]";
+                      }
+
+                      return (
+                        <div className={`text-5xl md:text-6xl font-black px-10 py-5 rounded-3xl border-2 bg-slate-900/90 ${styleGlowAndBorder} flex items-center gap-3`}>
+                          {finalScore >= 90 && <span className="text-4xl">👑</span>}
+                          <span>{gradeLabel}</span>
+                          {finalScore >= 90 && <span className="text-4xl">👑</span>}
+                        </div>
+                      );
+                    })()}
+                  </motion.div>
+                )}
+
+                {/* Step 6: TITLE FLOAT OVER */}
+                {animationStage === 6 && (
+                  <motion.div
+                    key="stage-6"
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ ease: "easeOut", duration: 0.6 }}
+                    className="flex flex-col items-center justify-center text-center z-10"
+                  >
+                    <div className="text-[10px] text-slate-400 uppercase tracking-widest mb-4 font-mono font-bold">
+                      RECOGNIZED GOVERNANCE TITLE • 元首任期終身榮譽稱號
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-widest mb-4 drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]">
+                      {activeEnding.rating}
+                    </h2>
+                    <div className="text-[10px] font-mono text-[#f5a623] uppercase tracking-widest bg-amber-500/10 border border-amber-500/25 px-4 py-1 rounded">
+                      RECOGNITION APPROVED BY THE SIMULATION CABINET
+                    </div>
+                  </motion.div>
+                )}
+
+              </div>
+            ) : (
+              
+              /* ── VII STAGE: SHARE CARD ENTERS WITH SPRING ANIMATION ── */
+              <motion.div
+                id="ending-share-card-modal"
+                initial={{ scale: 0.8, opacity: 0, y: 180 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.8, opacity: 0, y: 180 }}
+                transition={{ type: "spring", damping: 15, stiffness: 85 }}
+                className="relative bg-gradient-to-b from-[#0d1226] to-[#04060d] border-2 border-amber-500/40 rounded-3xl w-full max-w-[650px] shadow-[0_0_55px_rgba(245,158,11,0.25)] text-left overflow-hidden flex flex-col p-6 md:p-8 select-none"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Scanlines / Grid overlay */}
+                <div 
+                  className="absolute inset-0 opacity-5 pointer-events-none" 
+                  style={{
+                    backgroundImage: `linear-gradient(to right, #f5a623 1px, transparent 1px), linear-gradient(to bottom, #f5a623 1px, transparent 1px)`,
+                    backgroundSize: "20px 20px"
+                  }}
+                />
+                <div className="absolute inset-0 bg-radial-gradient from-amber-500/5 via-transparent to-transparent pointer-events-none" />
+
+                {/* Close Button X */}
+                <button
+                  onClick={() => setShowEndingCardModal(false)}
+                  className="absolute top-4 right-4 z-10 p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer border border-transparent hover:border-slate-800"
+                  title="關閉"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+
+                {/* Card Title */}
+                <div className="text-center border-b border-slate-800 pb-4 mb-4 relative z-10">
+                  <h2 className="text-2xl font-extrabold tracking-widest text-[#f5a623] uppercase drop-shadow-[0_2px_8px_rgba(245,158,11,0.35)] font-sans">
+                    CHRONOS 任期結算卡
+                  </h2>
+                  <p className="text-[10px] font-mono font-bold text-slate-400 tracking-[0.25em] mt-1 uppercase">
+                    我的總統任期結果 • presidential term results
+                  </p>
+                </div>
+
+                {/* Card Main Body Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 relative z-10 items-stretch">
+                  
+                  {/* Left Side Column: Avatar, Grade & Title */}
+                  <div className="md:col-span-5 flex flex-col items-center justify-center text-center p-4 bg-[#11162d]/60 border border-slate-800/80 rounded-2xl relative overflow-hidden">
+                    <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#f5a623]/40 to-transparent" />
+                    
+                    {/* President Photo */}
+                    <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-amber-500/30 bg-[#141a2e] mb-4 shadow-lg shrink-0 flex items-center justify-center">
+                      <img
+                        src={trumpAvatar}
+                        alt="Donald J. Trump"
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover scale-110 mt-1"
+                      />
+                    </div>
+
+                    {/* Grading badge */}
+                    {(() => {
+                      const finalScore = Math.round((activeEnding.stats.economy + activeEnding.stats.military + activeEnding.stats.diplomacy + activeEnding.stats.publicOpinion + activeEnding.stats.industry + activeEnding.stats.market) / 6);
+                      let grade = "A級";
+                      let glowColor = "shadow-[0_0_20px_rgba(245,158,11,0.4)] border-amber-400";
+                      let animateClass = "animate-pulse";
+                      if (finalScore >= 90) {
+                        grade = "S級";
+                        glowColor = "shadow-[0_0_35px_rgba(245,158,11,0.85)] border-amber-400 text-amber-300";
+                      } else if (finalScore >= 80) {
+                        grade = "A級";
+                        glowColor = "shadow-[0_0_20px_rgba(245,158,11,0.45)] border-amber-500 text-amber-400";
+                      } else if (finalScore >= 70) {
+                        grade = "B級";
+                        glowColor = "shadow-[0_0_15px_rgba(59,130,246,0.3)] border-blue-500 text-blue-400";
+                        animateClass = "";
+                      } else if (finalScore >= 60) {
+                        grade = "C級";
+                        glowColor = "shadow-[0_0_10px_rgba(168,85,247,0.2)] border-purple-500 text-purple-400";
+                        animateClass = "";
+                      } else if (finalScore >= 40) {
+                        grade = "失敗級";
+                        glowColor = "shadow-[0_0_10px_rgba(249,115,22,0.2)] border-orange-500 text-orange-400";
+                        animateClass = "";
+                      } else {
+                        grade = "災難級";
+                        glowColor = "shadow-[0_0_20px_rgba(239,68,68,0.45)] border-red-500 text-red-500";
+                        animateClass = "";
+                      }
+
+                      return (
+                        <div className="flex flex-col items-center">
+                          <div className={`px-4 py-1 rounded-full border bg-slate-900/90 text-xs font-black tracking-widest ${glowColor} ${animateClass} mb-3 flex items-center justify-center gap-1.5`}>
+                            {finalScore >= 90 ? "👑" : "🏆"} {grade}
+                          </div>
+                          <p className="text-[10px] text-slate-400 font-mono tracking-widest uppercase mb-1 font-bold">
+                            白宮官方評定稱號
+                          </p>
+                          <h4 className="text-lg font-black text-white tracking-widest drop-shadow-md">
+                            {activeEnding.rating}
+                          </h4>
+                        </div>
+                      );
+                    })()}
+                  </div>
+
+                  {/* Right Side Column: Ending details, Rating Score, and 6 stats */}
+                  <div className="md:col-span-7 flex flex-col justify-between gap-4">
+                    
+                    {/* Score & Ending description */}
+                    <div className="bg-[#11162d]/30 border border-slate-800/60 p-4 rounded-2xl text-left">
+                      <span className="text-[9px] font-mono text-[#f5a623] uppercase font-bold tracking-wider mb-1 block">
+                        FINAL DESTINY • 歷史演變結局
+                      </span>
+                      <h3 className="text-xl font-extrabold text-white tracking-wider mb-2.5">
+                         {activeEnding.title}
+                      </h3>
+                      
+                      {/* Big score layout */}
+                      <div className="flex items-baseline mt-2.5 gap-1 text-left">
+                        <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">總統評分：</span>
+                        <span className="text-5xl font-black text-[#f5a623] tracking-tight font-mono drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                          {Math.round((activeEnding.stats.economy + activeEnding.stats.military + activeEnding.stats.diplomacy + activeEnding.stats.publicOpinion + activeEnding.stats.industry + activeEnding.stats.market) / 6)}
+                        </span>
+                        <span className="text-lg text-slate-500 font-bold font-mono">/ 100</span>
+                      </div>
+                    </div>
+
+                    {/* Attributes lists */}
+                    <div className="bg-[#11162d]/40 border border-slate-800/60 p-4 rounded-2xl flex flex-col gap-2">
+                      <span className="text-[9px] font-mono text-slate-400 font-bold tracking-widest uppercase mb-1">
+                        關鍵內閣屬性指標
+                      </span>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                        {[
+                          { label: "經濟", val: activeEnding.stats.economy, color: "text-emerald-400" },
+                          { label: "軍事", val: activeEnding.stats.military, color: "text-blue-400" },
+                          { label: "外交", val: activeEnding.stats.diplomacy, color: "text-violet-400" },
+                          { label: "民意", val: activeEnding.stats.publicOpinion, color: "text-amber-500" },
+                          { label: "科技", val: activeEnding.stats.industry, color: "text-cyan-400" },
+                          { label: "股市", val: activeEnding.stats.market, color: "text-rose-450" }
+                        ].map((item, idx) => (
+                          <div key={idx} className="flex justify-between items-center text-xs pb-1.5 border-b border-slate-800/40">
+                            <span className="text-slate-400 font-bold">{item.label}：</span>
+                            <span className={`font-mono font-bold ${item.color}`}>{item.val}%</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* Historian Review Statement */}
+                <div className="mt-4 p-4 bg-amber-500/5 border border-amber-500/10 rounded-2xl relative z-10 text-left">
+                  <span className="text-[9px] font-mono text-[#f5a623] font-bold tracking-widest uppercase block mb-1.5">
+                    HISTORIANS' COMPREHENSIVE RATING • 歷史學家綜合評價
+                  </span>
+                  <p className="text-xs md:text-sm font-serif italic text-slate-300 leading-relaxed pl-2 border-l-2 border-amber-500/40 text-left">
+                    「{generateHistoricalReview(activeEnding.stats, activeEnding.title)[0] || "顧問之決策引領群倫，重新確立了世界歷史之航道。"}」
+                  </p>
+                </div>
+
+                {/* Footer specs */}
+                <div className="mt-4 border-t border-slate-800/80 pt-3 flex items-center justify-between text-[9px] text-slate-500 font-mono">
+                  <span>WHITE HOUSE STRATEGIC TERMINAL #47</span>
+                  <span>CHRONOS ENGINE V4.7</span>
+                </div>
+
+              </motion.div>
+            )}
+
           </div>
         )}
       </AnimatePresence>
