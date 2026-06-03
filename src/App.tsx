@@ -2964,8 +2964,95 @@ export default function App() {
                   /* ── MAJESTIC MULTI-ENDING PAGE (STEP 8) ── */
                   <div id="final-ending-page" className="w-full max-w-4xl mx-auto bg-[#0a0d16]/95 border border-amber-500/30 rounded-2xl p-6 md:p-10 flex flex-col gap-8 shadow-[0_20px_50px_rgba(245,158,11,0.08)] leading-relaxed text-center">
                     
+                    {/* Custom CSS transitions for professional ending game aesthetic and timing */}
+                    <style dangerouslySetInnerHTML={{ __html: `
+                      @keyframes endingTitleIn {
+                        from { opacity: 0; transform: scale(0.92); }
+                        to { opacity: 1; transform: scale(1); }
+                      }
+                      @keyframes endingCardIn {
+                        from { opacity: 0; transform: translateY(50px) scale(0.95); }
+                        to { opacity: 1; transform: translateY(0) scale(1); }
+                      }
+                      @keyframes endingFadeUp {
+                        from { opacity: 0; transform: translateY(30px); }
+                        to { opacity: 1; transform: translateY(0); }
+                      }
+                      @keyframes endingFlashGlow {
+                        0%, 100% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.3), inset 0 0 15px rgba(245, 158, 11, 0.15); }
+                        50% { box-shadow: 0 0 60px rgba(245, 158, 11, 0.6), inset 0 0 25px rgba(245, 158, 11, 0.25); }
+                      }
+                      @keyframes flashShine {
+                        0%, 100% { filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.4)); text-shadow: 0 0 8px rgba(245, 158, 11, 0.15); }
+                        50% { filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.9)) brightness(1.2); text-shadow: 0 0 20px rgba(245, 158, 11, 0.7), 0 0 40px rgba(255, 255, 255, 0.5); }
+                      }
+                      
+                      .ending-title-anim {
+                        animation: endingTitleIn 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
+                      }
+                      .ending-desc-anim {
+                        animation: endingFadeUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.2s;
+                      }
+                      
+                      /* Staggered Reviews */
+                      .ending-review-anim-0 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.4s;
+                      }
+                      .ending-review-anim-1 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.5s;
+                      }
+                      .ending-review-anim-2 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.6s;
+                      }
+                      
+                      /* Staggered Stats Metrics */
+                      .ending-stat-anim-0 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.7s;
+                      }
+                      .ending-stat-anim-1 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.78s;
+                      }
+                      .ending-stat-anim-2 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.86s;
+                      }
+                      .ending-stat-anim-3 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 0.94s;
+                      }
+                      .ending-stat-anim-4 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 1.02s;
+                      }
+                      .ending-stat-anim-5 {
+                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 1.1s;
+                      }
+                      
+                      .ending-score-card-anim {
+                        animation: endingCardIn 1s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 1.15s;
+                      }
+                      .ending-badge-glow-anim {
+                        animation: endingFlashGlow 2.5s infinite ease-in-out;
+                      }
+                      .ending-grade-shine-anim {
+                        animation: flashShine 1.5s infinite ease-in-out;
+                      }
+                      .ending-actions-anim {
+                        animation: endingFadeUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
+                        animation-delay: 1.4s;
+                      }
+                    ` }} />
+
                     {/* 結局標題 */}
-                    <div className="flex flex-col items-center justify-center gap-4">
+                    <div className="flex flex-col items-center justify-center gap-4 ending-title-anim">
                       <div className={`w-24 h-24 rounded-3xl flex items-center justify-center border ${activeEnding.ratingColor} shadow-[0_0_40px_rgba(245,158,11,0.15)]`}>
                         <span className="text-6xl">{activeEnding.icon}</span>
                       </div>
@@ -2975,7 +3062,7 @@ export default function App() {
                     </div>
 
                     {/* 結局描述 */}
-                    <div className="bg-slate-900/60 border-2 border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col">
+                    <div className="bg-slate-900/60 border-2 border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col ending-desc-anim">
                       <div className="absolute inset-0 bg-gradient-to-b from-slate-800/20 to-transparent pointer-events-none" />
                       <p className="text-lg md:text-2xl text-slate-200 leading-relaxed font-bold whitespace-pre-wrap relative z-10 text-center">
                         {activeEnding.desc}
@@ -2989,7 +3076,7 @@ export default function App() {
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {generateHistoricalReview(activeEnding.stats, activeEnding.title).map((review, i) => (
-                           <div key={i} className="bg-[#0f1424]/90 border border-indigo-500/30 rounded-xl p-6 flex flex-col justify-center items-center shadow-lg hover:border-indigo-400/50 transition-colors h-full min-h-[120px]">
+                           <div key={i} className={`bg-[#0f1424]/90 border border-indigo-500/30 rounded-xl p-6 flex flex-col justify-center items-center shadow-lg hover:border-indigo-400/50 transition-colors h-full min-h-[120px] ending-review-anim-${i}`}>
                               <p className="text-[15px] md:text-base text-slate-300 font-medium text-center leading-snug">
                                 {review}
                               </p>
@@ -3011,8 +3098,8 @@ export default function App() {
                           { key: 'publicOpinion', label: '民意支持', icon: <Users className="w-5 h-5 md:w-6 md:h-6 text-amber-500" />, val: activeEnding.stats.publicOpinion, color: 'text-amber-500', bg: 'bg-amber-500' },
                           { key: 'industry', label: '科技與產業', icon: <Factory className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />, val: activeEnding.stats.industry, color: 'text-cyan-400', bg: 'bg-cyan-500' },
                           { key: 'market', label: '關市與股市', icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-rose-450" />, val: activeEnding.stats.market, color: 'text-rose-450', bg: 'bg-rose-500' }
-                        ].map(stat => (
-                          <div key={stat.key} className="bg-slate-950/80 border border-slate-700/60 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col gap-3 md:gap-4 shadow-xl relative overflow-hidden">
+                        ].map((stat, i) => (
+                          <div key={stat.key} className={`bg-slate-950/80 border border-slate-700/60 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col gap-3 md:gap-4 shadow-xl relative overflow-hidden ending-stat-anim-${i}`}>
                             <div className="flex items-center justify-between z-10">
                               <div className="flex items-center gap-2 md:gap-3">
                                 {stat.icon}
@@ -3029,16 +3116,16 @@ export default function App() {
                     </div>
 
                     {/* 總統評分大型徽章 */}
-                    <div className="flex flex-col items-center justify-center mt-6">
-                      <div className="flex flex-col items-center justify-center bg-gradient-to-b from-amber-900/40 to-slate-900/80 border-2 border-amber-400 rounded-[2rem] w-full max-w-[320px] py-10 shadow-[0_0_50px_rgba(245,158,11,0.4)] ring-2 ring-amber-500/40 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-amber-500/10 animate-pulse pointer-events-none" />
+                    <div className="flex flex-col items-center justify-center mt-6 ending-score-card-anim">
+                      <div className="flex flex-col items-center justify-center bg-gradient-to-b from-amber-900/40 to-slate-900/80 border-2 border-amber-400 rounded-[2rem] w-full max-w-[320px] py-10 shadow-[0_0_50px_rgba(245,158,11,0.4)] ring-2 ring-amber-500/40 relative overflow-hidden ending-badge-glow-anim">
+                        <div className="absolute inset-0 bg-amber-500/10 pointer-events-none" />
                         <div className="absolute top-0 w-full h-1/2 bg-amber-500/5" />
                         <span className="text-xs font-mono font-bold text-amber-200 tracking-widest uppercase mb-4 relative z-10 border border-amber-500/60 bg-amber-950/80 px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.3)]">
                           最高戰略執政評級
                         </span>
                         
                         <div className="flex flex-col items-center gap-1 relative z-10">
-                          <span className="text-7xl font-black font-mono text-amber-400 leading-none filter drop-shadow-[0_0_20px_rgba(245,158,11,0.5)]">
+                           <span className="text-7xl font-black font-mono text-amber-400 leading-none filter drop-shadow-[0_0_20px_rgba(245,158,11,0.5)] ending-grade-shine-anim">
                             {activeEnding.rating.replace('總統', '')}
                             <span className="text-3xl font-bold ml-1 text-amber-500/60">級</span>
                           </span>
@@ -3056,10 +3143,10 @@ export default function App() {
                     </div>
 
                     {/* Action buttons footer */}
-                    <div className="flex flex-col md:flex-row gap-4 pt-6 border-t border-slate-800/80 mt-2">
+                    <div className="flex flex-col md:flex-row gap-4 pt-6 border-t border-slate-800/80 mt-2 ending-actions-anim">
                       <button
                         onClick={handleRestartGame}
-                        className="flex-1 py-4 md:py-5 bg-amber-500 hover:bg-amber-400 font-black text-sm md:text-base text-black uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] active:scale-95 flex items-center justify-center gap-2 animate-pulse"
+                        className="flex-1 py-4 md:py-5 bg-amber-500 hover:bg-amber-400 font-black text-sm md:text-base text-black uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] active:scale-95 flex items-center justify-center gap-2"
                       >
                         <RefreshCw className="w-5 h-5" />
                         重新挑戰
