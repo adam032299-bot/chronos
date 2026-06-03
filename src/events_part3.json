@@ -1,0 +1,822 @@
+[
+  {
+    "id": 41,
+    "category": "中美關係",
+    "title": "舊金山元首莊園會晤",
+    "description": "美中兩國首腦在舊金山莊園召開極其關鍵的元首峰會，試圖在雙邊衝突和軍事熱線恢復上尋求最大平和小歇。國內強硬派不滿，批評此舉是毫無底線地對敵讓步。",
+    "choices": [
+      {
+        "text": "重啟兩國最高軍事防衛戰術溝通機制，並簽署關於禁毒合作的雙邊協議，緩和對峙氣氛。",
+        "effects": {
+          "economy": 10,
+          "military": -8,
+          "diplomacy": 18,
+          "approval": -12,
+          "industry": 0,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "拒絕重啟軍事熱線！在會後記者會上再度強硬重申涉台、人權立場，迫使對方主動妥協。",
+        "effects": {
+          "economy": -5,
+          "military": 10,
+          "diplomacy": -15,
+          "approval": 15,
+          "industry": 5,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "維持中低等官員事務磋商管道，而將焦點放於中方對美大豆、波音客機等大宗商務採購保證。",
+        "effects": {
+          "economy": 14,
+          "military": 0,
+          "diplomacy": 8,
+          "approval": 10,
+          "industry": 8,
+          "stockMarket": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "category": "中美關係",
+    "title": "不信任中資持股百年造船廠",
+    "description": "美國一間具備百年歷史、承接海軍多種潛艇配套工程的大型民營造船廠，傳出部分中資間接控股的消息。五角大廈與國會安全委對此表達嚴重國安疑慮。",
+    "choices": [
+      {
+        "text": "利用国家安全審查法，強制該中資在 90 天內無條件完全轉售持股給美本土財團。",
+        "effects": {
+          "economy": -5,
+          "military": 12,
+          "diplomacy": -10,
+          "approval": 14,
+          "industry": 10,
+          "stockMarket": -5
+        }
+      },
+      {
+        "text": "不強制剝離轉售，改派五角大廈安全官入駐董事會，對軍用施工車間與藍圖進行實時封閉監管。",
+        "effects": {
+          "economy": 8,
+          "military": 8,
+          "diplomacy": 4,
+          "approval": -5,
+          "industry": 8,
+          "stockMarket": 6
+        }
+      },
+      {
+        "text": "由聯邦國防產業保障基金全額收歸公有化，撤銷所有民營持股股權，確保絕對防衛資訊安全。",
+        "effects": {
+          "economy": -10,
+          "military": 15,
+          "diplomacy": -2,
+          "approval": 10,
+          "industry": 15,
+          "stockMarket": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "category": "台海危機",
+    "title": "台灣海底光纜中斷事件",
+    "description": "兩條連接台灣本島與馬祖、金門的海底關鍵光纖電纜，在數日之內相繼被不詳國籍的貨船與採砂船撞斷。島內通訊陷入部分封鎖盲區，不尋常舉動在美智庫拉響警報。",
+    "choices": [
+      {
+        "text": "緊急召配美特種工程修護艦前往台海海域，高調協助台方搶修與保衛水下基礎電纜安全。",
+        "effects": {
+          "economy": -5,
+          "military": 16,
+          "diplomacy": -18,
+          "approval": 12,
+          "industry": 0,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "協助台方在其離島和海防一線部署美製『星盾（低軌衛星）』接收系統，低調解決通訊空窗。",
+        "effects": {
+          "economy": 4,
+          "military": 12,
+          "diplomacy": 8,
+          "approval": 5,
+          "industry": 12,
+          "stockMarket": 5
+        }
+      },
+      {
+        "text": "視之為純行政航運疏失，呼籲各方共同維護航道秩序，避免在國際外交層面過度炒作政治干擾。",
+        "effects": {
+          "economy": 8,
+          "military": -10,
+          "diplomacy": 10,
+          "approval": -14,
+          "industry": -2,
+          "stockMarket": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "category": "台海危機",
+    "title": "海軍艦艇穿越台海遭遇雷達掃描",
+    "description": "美軍巡洋艦穿越台海中線時，遭遇對手多架殲-16戰機低空盤旋、並開啟先進遠端精確目標制導雷達進行高頻率鎖定掃描，雙方在海空演練電子防衛壓制大戰。",
+    "choices": [
+      {
+        "text": "通電美戰區戰略司令部，調用在沖繩待命的F-35戰机飛赴現場威懾，反向警告掃描並進行高能電子反干擾。",
+        "effects": {
+          "economy": -4,
+          "military": 18,
+          "diplomacy": -15,
+          "approval": 14,
+          "industry": 5,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "命令巡洋艦加速駛離台海危急區域，不採取空中升級反向干擾，僅事後發表防務白皮書抗議。",
+        "effects": {
+          "economy": 8,
+          "military": -10,
+          "diplomacy": 10,
+          "approval": -12,
+          "industry": 0,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "提請召開日、韓、澳、菲印太四國國防部長電話會議，發表共同防務聲明，分攤多邊對抗雷達威脅之壓力。",
+        "effects": {
+          "economy": 2,
+          "military": 12,
+          "diplomacy": 15,
+          "approval": 8,
+          "industry": 5,
+          "stockMarket": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "category": "關稅戰",
+    "title": "歐洲豪車奢侈品反傾銷反擊",
+    "description": "白宮擬對歐洲部分鋼美鋼鋁製品、核心零部件再徵保護性關稅，歐洲盟友（尤其是法國和義大利車商）強烈抗議大喊不公，並威脅對美製波本威士忌、哈雷機車開徵反倾銷關稅。",
+    "choices": [
+      {
+        "text": "寸步不讓！宣布美國要保護不容歐洲說三道四，威脅加碼對歐洲進口豪車（奔馳、法拉利）開徵 30% 關稅。",
+        "effects": {
+          "economy": -12,
+          "military": -2,
+          "diplomacy": -18,
+          "approval": 12,
+          "industry": 10,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "撤回這一關稅意向，與歐盟委員會商談共同制定『跨大西洋低能耗重工業稅收同盟』，實現合作互免。",
+        "effects": {
+          "economy": 12,
+          "military": 5,
+          "diplomacy": 16,
+          "approval": -8,
+          "industry": 2,
+          "stockMarket": 15
+        }
+      },
+      {
+        "text": "採取差別化配額豁免（由國會審查聽證），以放寬部分德國高階工具機零件為誘餌，安撫歐洲大局。",
+        "effects": {
+          "economy": 10,
+          "military": 2,
+          "diplomacy": 8,
+          "approval": 5,
+          "industry": 5,
+          "stockMarket": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "category": "關稅戰",
+    "title": "東南亞轉口產地偷渡問題",
+    "description": "商務部調查發現大量中資實體將太陽能組件、核心零部件轉手運至越南、馬來西亞與泰國，進行深度改標、重新進口美境以逃避原先加徵的高額中國關稅，銹帶工廠反響惡劣。",
+    "choices": [
+      {
+        "text": "宣布對越、馬、泰、柬四國相關太陽能組件擴大實行定向反傾銷 25% 暫時關稅，一併清算。",
+        "effects": {
+          "economy": -10,
+          "military": 0,
+          "diplomacy": -14,
+          "approval": 16,
+          "industry": 15,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "組織大型商務專案聯合調查使團，對四國實地查證，給予其半年整頓與嚴查產地原件的合規寬限。",
+        "effects": {
+          "economy": 8,
+          "military": 0,
+          "diplomacy": 8,
+          "approval": -4,
+          "industry": 8,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "豁免東南亞光伏以維持美國家庭本地安裝綠能的平價（免除其關稅影響），並著力對美光伏提供本土基建減稅。",
+        "effects": {
+          "economy": 12,
+          "military": 0,
+          "diplomacy": 10,
+          "approval": 6,
+          "industry": -5,
+          "stockMarket": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "category": "科技競爭",
+    "title": "雲端運算限制出口令",
+    "description": "隨著 AI 算力限售加強，對手轉由大量向亞馬遜 AWS 、微軟 Azure 租用位于海外數據中心的精密算力雲端，以遠端運行其大模型參數軍工訓練。安全局要求立法封鎖這一漏洞。",
+    "choices": [
+      {
+        "text": "頒布『認識您的客戶（KYC）』聯邦政令，強制禁止任何含有軍用背景的非友好實體租用美方先進雲端運算。",
+        "effects": {
+          "economy": -5,
+          "military": 10,
+          "diplomacy": -8,
+          "approval": 8,
+          "industry": 12,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "拒絕進行限制！指責此舉會使美雲端大廠年失數十億收益，並促其轉向歐洲、中方的本地自營數據中心。",
+        "effects": {
+          "economy": 14,
+          "military": -5,
+          "diplomacy": 4,
+          "approval": -10,
+          "industry": -2,
+          "stockMarket": 15
+        }
+      },
+      {
+        "text": "改由設立多邊技術委員會，對 AI 計算任務內容實行特許日誌篩查，只卡控生化、密碼導航等特種敏感代碼編譯任務。",
+        "effects": {
+          "economy": 8,
+          "military": 8,
+          "diplomacy": 5,
+          "approval": 5,
+          "industry": 8,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "category": "科技競爭",
+    "title": "高新晶片技術封禁聯盟",
+    "description": "美方擬聯合日、荷、日、英召開五國會議，對高新半導體設備、清洗液、光膠組件等更底層技術建立多邊出口管制封禁同盟，試圖在技術源頭徹底卡死對手代際優勢。",
+    "choices": [
+      {
+        "text": "強行通過這項全面出海封禁盟章，威脅對任何不遵守該同盟的二級國家實施美科技產品拒供反擊。",
+        "effects": {
+          "economy": -12,
+          "military": 14,
+          "diplomacy": -15,
+          "approval": 12,
+          "industry": 18,
+          "stockMarket": -14
+        }
+      },
+      {
+        "text": "調降管制烈度，允許盟友保留中低階成熟製程和一般性化學耗材出口配額，維持多邊協調團結。",
+        "effects": {
+          "economy": 8,
+          "military": 5,
+          "diplomacy": 14,
+          "approval": -2,
+          "industry": 10,
+          "stockMarket": 10
+        }
+      },
+      {
+        "text": "改以給予各個盟國晶片研發與本土合資 200 億美元技術大獎勵，補償其退讓對話造成的本國營收損失。",
+        "effects": {
+          "economy": -5,
+          "military": 8,
+          "diplomacy": 12,
+          "approval": 5,
+          "industry": 15,
+          "stockMarket": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "category": "烏俄戰爭",
+    "title": "F-16 戰鬥機援助計畫啟航",
+    "description": "荷蘭與丹麥獲准向烏克蘭移交首批美製 F-16 戰機，烏飛行員在英美接受培訓即將實施特遣參戰任務。克里姆林宮宣稱已準備防空系統，並警告將直接轟炸可能起飛的鄰國機場。",
+    "choices": [
+      {
+        "text": "保證移交！放開一切限制，並允許美飛行教官以民營志願兵名義直接登台操作制空。",
+        "effects": {
+          "economy": -8,
+          "military": 16,
+          "diplomacy": -18,
+          "approval": -10,
+          "industry": 5,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "秘密限制使用功能：F-16 限制其只能執行烏內部領空的防禦，決不能跨界轟炸波蘭及俄本土基地。",
+        "effects": {
+          "economy": 5,
+          "military": -8,
+          "diplomacy": 10,
+          "approval": 5,
+          "industry": 0,
+          "stockMarket": 5
+        }
+      },
+      {
+        "text": "將戰鬥機專案與北歐共同防禦演習重組框架結合，由北歐各國全權接管後勤交付，降低美國名分熱度。",
+        "effects": {
+          "economy": -2,
+          "military": 10,
+          "diplomacy": 15,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "category": "烏俄戰爭",
+    "title": "二級金融制裁大威脅",
+    "description": "七國集團擬動用『二級制裁（Secondary Sanctions）』，懲罰任何涉嫌向俄羅斯軍工出口微晶片、銑床等敏感耗材之第三國大銀行。此舉有可能使多個非友好大型金融斷聯海嘯。",
+    "choices": [
+      {
+        "text": "全額不留漏洞簽署禁令！無論任何歐洲、亞洲大型銀行，一經發現必將其踢出 SWIFT 全球通信鏈。",
+        "effects": {
+          "economy": -14,
+          "military": 12,
+          "diplomacy": -15,
+          "approval": 14,
+          "industry": 5,
+          "stockMarket": -15
+        }
+      },
+      {
+        "text": "不採取一刀切脫鉤，改對這類次級高風險銀行實施定向的每日交易美元結算額度限制、逼其自行縮手。",
+        "effects": {
+          "economy": 8,
+          "military": -4,
+          "diplomacy": 10,
+          "approval": -4,
+          "industry": -2,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "推遲此項威脅。採取主邊元首熱線秘密斡旋名單，達成一項不公開的排除和自律排查協議。",
+        "effects": {
+          "economy": 12,
+          "military": 2,
+          "diplomacy": 14,
+          "approval": 5,
+          "industry": 5,
+          "stockMarket": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "category": "伊朗與中東衝突",
+    "title": "亞丁灣水雷和無人滑艇威脅",
+    "description": "也門海岸民兵在亞丁灣交通大航線投放了大量低成本先進隱形水雷與無人水下爆破滑艇，重創了一艘載有美國大豆特快貨船。各大全球保險集團面臨拒保恐慌。",
+    "choices": [
+      {
+        "text": "下令派遣海軍大批掃雷戰鬥群強行介入亞丁灣，對沿岸雷區與藏匿窩點發動定點打擊清除。",
+        "effects": {
+          "economy": -8,
+          "military": 18,
+          "diplomacy": -10,
+          "approval": 12,
+          "industry": 5,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "暫時引導美籍船隻重繞非洲好望角，與印、日等國海岸隊共享防空預警信號以降低衝突摩擦。",
+        "effects": {
+          "economy": -15,
+          "military": -5,
+          "diplomacy": 12,
+          "approval": -10,
+          "industry": 0,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "成立亞丁灣安全保證多邊基金，由美、法、沙等國共同抵押10億美元承保過境糧油商船保費折扣。",
+        "effects": {
+          "economy": -5,
+          "military": 10,
+          "diplomacy": 14,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "category": "伊朗與中東衝突",
+    "title": "黎巴嫩真主黨邊境火箭彈",
+    "description": "北境烽煙再起，真主黨在一天內向以色列發行了逾 150 枚火箭彈和無人機。特拉維夫強硬聲明必發動對貝魯特的大規模地面清剿戰，中東局勢即將邁向全面地面內戰。",
+    "choices": [
+      {
+        "text": "派遣第101空降師進駐賽普勒斯待命支援，全力保障以色列反制行動的彈藥和雷達引導供應。",
+        "effects": {
+          "economy": -10,
+          "military": 16,
+          "diplomacy": -15,
+          "approval": 10,
+          "industry": 8,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "強力施壓以色列，將防務軍工交付暫時調降，要求其接受美、法草擬的黎境南部 21 天暫時停火方案。",
+        "effects": {
+          "economy": 10,
+          "military": -12,
+          "diplomacy": 15,
+          "approval": -15,
+          "industry": -8,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "提供黎巴嫩政府軍不含致命性重武器的防務補助，協助強化邊界緩衝控制，試圖大事化小。",
+        "effects": {
+          "economy": 5,
+          "military": 8,
+          "diplomacy": 10,
+          "approval": 5,
+          "industry": 2,
+          "stockMarket": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "category": "股市與金融危機",
+    "title": "日圓暴跌與套利交易平倉海嘯",
+    "description": "隨著日本央行意外小幅升息、而美東卻預期走向降息，日圓匯率大暴反彈，這使得全球數萬億利用日圓融資的『套利交易（Carry Trade）』突然瘋狂踩踏清倉，美股單日暴跌1000點。",
+    "choices": [
+      {
+        "text": "聯絡美、日兩國財長發表共同匯率協同保證，平息市場擠兌，必要時允許日本央行拋售部分美債換現。",
+        "effects": {
+          "economy": -5,
+          "military": 0,
+          "diplomacy": 12,
+          "approval": -8,
+          "industry": 5,
+          "stockMarket": 15
+        }
+      },
+      {
+        "text": "在推特抨擊這都是不守財規的大资本與外匯禿鷹的投機陰謀，拒絕對華爾街高杠桿對沖基金提供流動援助。",
+        "effects": {
+          "economy": -15,
+          "military": 0,
+          "diplomacy": 2,
+          "approval": 14,
+          "industry": -5,
+          "stockMarket": -18
+        }
+      },
+      {
+        "text": "與聯準會緊急緊急成立臨時隔夜回購擔保窗口，為高流動性主體提供抵押拆借，避免危機惡性傳染。",
+        "effects": {
+          "economy": 8,
+          "military": 0,
+          "diplomacy": 5,
+          "approval": 10,
+          "industry": 8,
+          "stockMarket": 18
+        }
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "category": "股市與金融危機",
+    "title": "瑞士信貸倒閉國際連鎖風暴",
+    "description": "歐洲銀行業爆發火情！百年富豪投行『瑞士信貸（Credit Suisse）』危機暴跌，逼近違約解約。因其與華爾街有極深的多向衍生品對沖交易，美金控恐連鎖陷入滅頂危機。",
+    "choices": [
+      {
+        "text": "緊急召集群商，通宵促成瑞士央行與瑞銀集團（UBS）強行以极低價合組兼併，確保不波及本土。",
+        "effects": {
+          "economy": 10,
+          "military": 0,
+          "diplomacy": 12,
+          "approval": 10,
+          "industry": 5,
+          "stockMarket": 16
+        }
+      },
+      {
+        "text": "拒絕伸手！不參與干預，即使風暴重創瑞士，也要堅決防止公共基金在海外銀行黑洞中被免費消費。",
+        "effects": {
+          "economy": -15,
+          "military": 0,
+          "diplomacy": -8,
+          "approval": 12,
+          "industry": -10,
+          "stockMarket": -18
+        }
+      },
+      {
+        "text": "宣布支持美國證交會（SEC）對與瑞士信貸交叉曝險的華爾街高槓桿結構工具，實行每天特別匯報制度。",
+        "effects": {
+          "economy": 5,
+          "military": 0,
+          "diplomacy": 5,
+          "approval": 5,
+          "industry": -2,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "category": "通貨膨脹與聯準會",
+    "title": "大型連鎖商店『零元購』狂熱",
+    "description": "隨著底層物價高企，大都市區針對 Target、CVS 等藥連鎖藥妝店的集體越軌搶奪（零元購）事件頻傳，保險巨頭因此調升商業保險費達 150%，引發本土商店紛紛關門與市面蕭條。",
+    "choices": [
+      {
+        "text": "通過並簽署國家《零售反搶劫安全法案》，授權聯邦大筆資金查哨，嚴厲打擊1000美元以上的偷竊重判。",
+        "effects": {
+          "economy": 8,
+          "military": 5,
+          "diplomacy": 0,
+          "approval": 18,
+          "industry": 8,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "反對聯邦權力過度干涉地方法治，呼籲各個进步市長加發基層社區治安巡守金與大和解民意。 ",
+        "effects": {
+          "economy": -8,
+          "military": -2,
+          "diplomacy": 0,
+          "approval": -15,
+          "industry": -12,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "給予這些受害零售業與保險行業以小規模租稅聯邦特別退款，挽回其遷出貧民區的生存信心。",
+        "effects": {
+          "economy": 12,
+          "military": 0,
+          "diplomacy": 2,
+          "approval": 8,
+          "industry": 5,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "category": "通貨膨脹與聯準會",
+    "title": "巴拿馬運河乾旱巨阻",
+    "description": "因為史詩級聖嬰乾旱，巴拿馬運河淡水湖水位暴跌，造成每日過河大型貨輪配額暴跌40%。美東到美西的貨物大打結，拼高物流費用200%，拉高批發通膨警報。",
+    "choices": [
+      {
+        "text": "給予美西長灘港與美鐵路大動脈一攬子 15 億元快速疏通補貼，全力改走海鐵聯運替代通道。",
+        "effects": {
+          "economy": 8,
+          "military": 5,
+          "diplomacy": 2,
+          "approval": 10,
+          "industry": 15,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "拒絕進行大規模財政支出，呼籲市場貨主自行在航線運費上完成自我降槓桿，降低庫存通膨危害。",
+        "effects": {
+          "economy": -10,
+          "military": 0,
+          "diplomacy": 0,
+          "approval": -12,
+          "industry": -5,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "秘密與巴拿馬運河管理局協調，通過增加對其特定水利基建項目的特別低息無償長期貸款，換取美輪優先權。",
+        "effects": {
+          "economy": 5,
+          "military": 2,
+          "diplomacy": 14,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "category": "非法移民與邊境問題",
+    "title": "廢除『留在墨西哥』政策法律戰",
+    "description": "白宮擬正式取消第45任政府時期推行的《留在墨西哥》（Remain in Mexico）法規，允許尋求庇護難民留駐美本境等待漫長排期。最高法院和南部各州起訴要求恢復原樣。",
+    "choices": [
+      {
+        "text": "撤回取消方案，重申嚴格將一切未審核者拒留境外，防止引發新一波數百萬人的邊境大危機。",
+        "effects": {
+          "economy": -5,
+          "military": 10,
+          "diplomacy": -5,
+          "approval": 16,
+          "industry": 2,
+          "stockMarket": -2
+        }
+      },
+      {
+        "text": "與德州、亞利桑那爆發法律戰到底！堅持廢除，宣示恢復美國大國人道庇護的核心基因定位。",
+        "effects": {
+          "economy": 8,
+          "military": -12,
+          "diplomacy": 8,
+          "approval": -18,
+          "industry": -5,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "折衷妥協：限制留駐美境的庇護者在各州的特定人道收容工區範圍內，嚴格不得四处跨省穿行。",
+        "effects": {
+          "economy": 10,
+          "military": 5,
+          "diplomacy": 2,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "category": "非法移民與邊境問題",
+    "title": "高科技智能邊境電網大招標",
+    "description": "五角大廈擬針對兩千多公里邊界起草一份高達 50 億元的《高科技智能邊防電網合同》，招標微軟、Palantir 的 AI 熱感無人哨來取代大量人力，面臨進步派杯葛抗議。",
+    "choices": [
+      {
+        "text": "強行高調簽署撥款招標！宣布科技防線是最無痛、最Tremendous強大的二十一世紀邊防神器。",
+        "effects": {
+          "economy": -8,
+          "military": 15,
+          "diplomacy": -2,
+          "approval": 14,
+          "industry": 18,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "廢除此高科技合同，將資金改回一般性的德州、墨美聯合社會援助，試圖在治安根本上緩和對峙環境。",
+        "effects": {
+          "economy": 10,
+          "military": -10,
+          "diplomacy": 12,
+          "approval": -12,
+          "industry": -10,
+          "stockMarket": -5
+        }
+      },
+      {
+        "text": "與競標商協商，裁撤部分極度敏感、容易引發環保和反烏托邦質疑的特定紅外無人機空中常態監視數額。",
+        "effects": {
+          "economy": 5,
+          "military": 8,
+          "diplomacy": 5,
+          "approval": 10,
+          "industry": 8,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "category": "AI與晶片競爭",
+    "title": "AI 超級能耗缺口特許法案",
+    "description": "微軟、亞馬遜建設的百萬塊 GPU 級大數據中心，正面臨史詩級的電網承載荒。AI 巨頭聯名懇求白宮簽署特許案，容許其在數據中心旁直建小型模組化核反應爐（SMR），面臨環評組織起訴。",
+    "choices": [
+      {
+        "text": "即刻繞過環評、特許同意！宣稱『大算力即是大國主權』，保障美國在 AI 產業算力的絕對擴張自由。",
+        "effects": {
+          "economy": 14,
+          "military": 5,
+          "diplomacy": 2,
+          "approval": 12,
+          "industry": 20,
+          "stockMarket": 18
+        }
+      },
+      {
+        "text": "堅決反對！支持環評法理，強令所有 AI 中心必須在兩年內做到 100% 綠能（太陽能風能），防止過熱碳排放。",
+        "effects": {
+          "economy": -12,
+          "military": -5,
+          "diplomacy": 8,
+          "approval": -14,
+          "industry": -12,
+          "stockMarket": -15
+        }
+      },
+      {
+        "text": "折衷折中：容許在特定的新墨西哥、亞利桑那與荒漠地區開建核能算力基地，遠離東、西海岸稠密區。",
+        "effects": {
+          "economy": 8,
+          "military": 5,
+          "diplomacy": 5,
+          "approval": 5,
+          "industry": 12,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "category": "AI與晶片競爭",
+    "title": "限制美資境外科技投資命令",
+    "description": "財政部正式出台總統行政命令，限制並審查美國風投（VC）和私募股權對非友好國家先进半導體、量子計算、AI 大模型的敏感投資，風投大亨抗議稱此舉有礙资本流暢自由。",
+    "choices": [
+      {
+        "text": "最嚴格執行！任何未經申報與含有美國合夥人資金一律強硬查帳並暫扣非法投資，甚至課處天價罰金。",
+        "effects": {
+          "economy": -10,
+          "military": 10,
+          "diplomacy": -8,
+          "approval": 12,
+          "industry": 15,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "反對管制！不進行強制審查撤退，而將限制條件僅放於涉事軍工附屬直接部門，免除一般民用天使輪境外自由投資。",
+        "effects": {
+          "economy": 12,
+          "military": -5,
+          "diplomacy": 5,
+          "approval": -5,
+          "industry": -2,
+          "stockMarket": 14
+        }
+      },
+      {
+        "text": "給予六個月合規緩衝期，成立專家聽證委員會逐案複查，並對自海外撤資、回流德州的風投資金，給予相同金額的稅額抵免。",
+        "effects": {
+          "economy": 5,
+          "military": 8,
+          "diplomacy": 5,
+          "approval": 8,
+          "industry": 12,
+          "stockMarket": 8
+        }
+      }
+    ]
+  }
+]

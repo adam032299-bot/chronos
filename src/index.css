@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+}
+
+html, body {
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: "liga" on, "clig" on, "calt" on, "kern" on;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(245, 158, 11, 0.9);
+  }
+}
+
+.text-pulse-gold {
+  animation: pulse-gold 3s infinite;
+}
+
+@layer utilities {
+  /* Dynamic custom scrollbar for retro terminal feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.3);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 0.6);
+  }
+}

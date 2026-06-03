@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: Remix: CHRONOS 歷史政策智庫",
+  "description": "白宮戰略決策模擬遊戲，扮演川普總統的外交與政策顧問，在風雲軌譎的國際局勢中權衡六大國家屬性，做出最有利於美國的關鍵政策決定。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

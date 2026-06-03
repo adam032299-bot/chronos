@@ -1,0 +1,822 @@
+[
+  {
+    "id": 21,
+    "category": "中美關係",
+    "title": "南海神盾驅逐艦事件",
+    "description": "美軍神盾級驅逐艦在南海執行『航行自由運動』時，遭中方萬噸級海警船橫切逼近，雙方船艦距離僅餘40碼，海上局勢一觸即發。",
+    "choices": [
+      {
+        "text": "命令驅逐艦堅守航線不避讓，並開啟全艦射控雷達強硬鎖定對方警戒。",
+        "effects": {
+          "economy": 0,
+          "military": 18,
+          "diplomacy": -16,
+          "approval": 12,
+          "industry": 0,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "微調航向主動避讓，並由國務院發表外交抗議声明，呼籲建立海上溝通安全熱線。",
+        "effects": {
+          "economy": 4,
+          "military": -8,
+          "diplomacy": 10,
+          "approval": -12,
+          "industry": 0,
+          "stockMarket": 6
+        }
+      },
+      {
+        "text": "協同菲律賓及日本在事發海域加開多國警戒巡航，共同分擔對中海上對峙壓力。",
+        "effects": {
+          "economy": -2,
+          "military": 10,
+          "diplomacy": 14,
+          "approval": 8,
+          "industry": 2,
+          "stockMarket": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "category": "中美關係",
+    "title": "禁止中資購買美農地法案",
+    "description": "多個州議會推動跨黨派法案，擬全面禁止中資與特定外國實體購買美國境內軍事基地周邊的農地與敏感房產，中方抗議稱此舉涉嫌歧視並揚言實行反制。",
+    "choices": [
+      {
+        "text": "全面簽署聯邦行政命令加碼禁止，限制購買範圍擴大至所有關鍵基礎設施周邊30英里。",
+        "effects": {
+          "economy": -5,
+          "military": 8,
+          "diplomacy": -12,
+          "approval": 16,
+          "industry": -5,
+          "stockMarket": -4
+        }
+      },
+      {
+        "text": "不採取全面一刀切禁令，改由外國投資委員會（CFIUS）進行逐案個案審理，以防嚇跑外資。",
+        "effects": {
+          "economy": 10,
+          "military": -2,
+          "diplomacy": 5,
+          "approval": -8,
+          "industry": 5,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "僅禁止特定涉及軍工或國營背景的實體購買，放寬普通民營企業及個人居留農業需求。",
+        "effects": {
+          "economy": 5,
+          "military": 2,
+          "diplomacy": 2,
+          "approval": 5,
+          "industry": 2,
+          "stockMarket": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "category": "台海危機",
+    "title": "台灣海峽定期巡邏常態化",
+    "description": "五角大廈擬將美日聯合海空巡邏台海的頻次提高，以應對日益增強的灰色地帶侵擾。歐洲多國對此表達保留態度，擔心過度刺激局勢。",
+    "choices": [
+      {
+        "text": "堅決執行，並邀請日本海上自衛隊公開登報宣布，徹底展現對台盟友承諾。",
+        "effects": {
+          "economy": -5,
+          "military": 12,
+          "diplomacy": -18,
+          "approval": 14,
+          "industry": 0,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "取消美日名義，改由美軍艦艇『低調不張揚』過境，避免在媒體上過度做文章。",
+        "effects": {
+          "economy": 5,
+          "military": 5,
+          "diplomacy": 8,
+          "approval": -5,
+          "industry": 2,
+          "stockMarket": 5
+        }
+      },
+      {
+        "text": "延緩海軍常態化，轉向強化對台灣海巡署在無人巡邏艇與海洋衛視戰術情報上的遠端共享支援。",
+        "effects": {
+          "economy": 2,
+          "military": 8,
+          "diplomacy": 5,
+          "approval": 5,
+          "industry": 8,
+          "stockMarket": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "category": "台海危機",
+    "title": "金門海域海警執法爭議",
+    "description": "中方海警船在廈金海域強化常態化巡查，並強行登檢一艘台灣觀光船。這使台灣海巡防線面臨極大防守與民意焦慮，美方內部亦在研商對策。",
+    "choices": [
+      {
+        "text": "發表強硬聲明譴責中方單方面改變現狀，並承諾調派海岸防衛隊巡邏艦赴台海協巡。",
+        "effects": {
+          "economy": -8,
+          "military": 15,
+          "diplomacy": -14,
+          "approval": 12,
+          "industry": 0,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "秘密敦促台方妥協和解，大事化小，避免引發中美之間無法挽回的直接衝突。",
+        "effects": {
+          "economy": 8,
+          "military": -10,
+          "diplomacy": 12,
+          "approval": -14,
+          "industry": 0,
+          "stockMarket": 10
+        }
+      },
+      {
+        "text": "利用台海局勢遊說國會，迅速推動新一筆針對印太區域的50億元緊急無償軍事融資撥款。",
+        "effects": {
+          "economy": -4,
+          "military": 10,
+          "diplomacy": 8,
+          "approval": 8,
+          "industry": 12,
+          "stockMarket": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "category": "關稅戰",
+    "title": "中國稀土出口管制反擊",
+    "description": "為反對美方對其關鍵半導體的圍堵，中方宣布對製造高端雷達晶片與軍工激光感應必備的元素『鎵、鍺』以及稀土實行出口許可證管制，全球相關產業供應鏈價格應聲大漲。",
+    "choices": [
+      {
+        "text": "宣布對中國稀土進口製品和下游磁鐵開徵 50% 關稅，反向施壓其撤銷限制。",
+        "effects": {
+          "economy": -14,
+          "military": 5,
+          "diplomacy": -12,
+          "approval": 10,
+          "industry": -8,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "緊急啟動國防生產法，出資 15 億美元全額補助在加州與澳洲重啟開採與深加工產線，擺脫依賴。",
+        "effects": {
+          "economy": -5,
+          "military": 8,
+          "diplomacy": 5,
+          "approval": 8,
+          "industry": 18,
+          "stockMarket": 2
+        }
+      },
+      {
+        "text": "向WTO提起聯合訴訟，同時在不張揚情況下與中方召開商務工作組對話以期豁免名單。",
+        "effects": {
+          "economy": 8,
+          "military": -2,
+          "diplomacy": 10,
+          "approval": -8,
+          "industry": 5,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "category": "關稅戰",
+    "title": "墨西哥轉運逃避關稅調查",
+    "description": "五角大樓及海關總署發現，有大量中資背景的鋼鐵與汽車零件實體，涉嫌將商品運至墨西哥進行簡單包裝換標、規避北美自貿協定（USMCA）的限制。銹帶鋼鐵巨頭強烈抗議。",
+    "choices": [
+      {
+        "text": "對墨西哥所有過境鋼鐵與汽車組件課徵懲罰性 25% 暫時關稅，直到墨方查封所有中資轉運站。",
+        "effects": {
+          "economy": -12,
+          "military": 0,
+          "diplomacy": -15,
+          "approval": 14,
+          "industry": 12,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "不課稅，改派聯合工作組入駐邊境海關加查原產地證書（Rule of Origin），並實行配額制。",
+        "effects": {
+          "economy": 8,
+          "military": 0,
+          "diplomacy": 5,
+          "approval": -2,
+          "industry": 6,
+          "stockMarket": 6
+        }
+      },
+      {
+        "text": "與墨西哥重簽特殊關稅保證協議，以擴大美製農產品在墨銷售免稅額，換取其自行排查。",
+        "effects": {
+          "economy": 10,
+          "military": 0,
+          "diplomacy": 12,
+          "approval": 5,
+          "industry": 2,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "category": "科技競爭",
+    "title": "太空低軌衛星頻段搶佔",
+    "description": "隨著 SpaceX 星鏈在烏俄戰場大放異彩，中方加緊在聯合國申請並發射數萬顆『國網』低軌衛星，計畫與美方搶奪極其稀缺的軌道空間與電磁頻率。",
+    "choices": [
+      {
+        "text": "宣布將大空軍資助預算翻倍，加緊發射軍用級『星鏈系統』進行強力軌道佔位與干擾測試。",
+        "effects": {
+          "economy": -8,
+          "military": 16,
+          "diplomacy": -10,
+          "approval": 10,
+          "industry": 15,
+          "stockMarket": -5
+        }
+      },
+      {
+        "text": "在國際電信聯盟（ITU）提出多邊防撞與頻率管制限制方案，限制各國單方面無上限發射數額。",
+        "effects": {
+          "economy": 2,
+          "military": 2,
+          "diplomacy": 12,
+          "approval": -4,
+          "industry": 5,
+          "stockMarket": 5
+        }
+      },
+      {
+        "text": "與歐洲與日本等盟友組建大通信防務委員會，成立多邊大合作，共享專利授權進行抗衡。",
+        "effects": {
+          "economy": -2,
+          "military": 8,
+          "diplomacy": 14,
+          "approval": 5,
+          "industry": 8,
+          "stockMarket": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "category": "科技競爭",
+    "title": "聯邦生物安全法案爭議",
+    "description": "國會推動《生物安全法案》（Biosecure Act），限制美國聯邦醫療基金與中國醫藥巨頭藥明康德及相關子公司合作。製藥行業警告此舉可能推遲美國部分抗癌新藥的量產進程。",
+    "choices": [
+      {
+        "text": "堅持通過法案，強制在兩年內完全切斷任何生物鏈合作，保障基因數據安全性。",
+        "effects": {
+          "economy": -5,
+          "military": 0,
+          "diplomacy": -8,
+          "approval": 12,
+          "industry": -12,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "推遲法案執行年限至五年，給予美國醫藥巨頭足夠時間重組供應，避免市場劇烈波動。",
+        "effects": {
+          "economy": 8,
+          "military": 0,
+          "diplomacy": 4,
+          "approval": -4,
+          "industry": 5,
+          "stockMarket": 10
+        }
+      },
+      {
+        "text": "實施差別化豁免，容許用於纯民生、非基因改造項目的技術代工與一般性原料藥進口貿易。",
+        "effects": {
+          "economy": 12,
+          "military": 0,
+          "diplomacy": 5,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "category": "烏俄戰爭",
+    "title": "黑海糧食協議破裂與航線對峙",
+    "description": "俄羅斯宣布不再續簽黑海糧食出口協議，並警告將把任何航向烏克蘭港口的貨船視為潛在軍火威脅之敵。國際小麥黃豆期貨暴漲，聯合國正與各界協調中。",
+    "choices": [
+      {
+        "text": "派遣北約聯軍或美軍艦船介入並提供武裝護航，強行保障糧食船隻人道通行權益。",
+        "effects": {
+          "economy": -10,
+          "military": 16,
+          "diplomacy": -15,
+          "approval": 10,
+          "industry": 5,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "不派兵，全力提供財政補貼，協助烏克蘭擴充多條經羅馬尼亞與波蘭的陸路鐵路出口替代。 ",
+        "effects": {
+          "economy": -8,
+          "military": -2,
+          "diplomacy": 12,
+          "approval": -6,
+          "industry": 2,
+          "stockMarket": 5
+        }
+      },
+      {
+        "text": "與土耳其召開閉門會商，由土方海軍進行中性非北約名義護航，避開美俄第一線擦槍走火。",
+        "effects": {
+          "economy": 4,
+          "military": 5,
+          "diplomacy": 14,
+          "approval": 8,
+          "industry": 5,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "category": "烏俄戰爭",
+    "title": "凍結 3000 億俄央行外匯資產",
+    "description": "歐美陣營對是否沒收並徹底清算已被凍結的3000億美元俄羅斯央行外匯資產產生分歧。美方強烈推動，但法德意三國憂慮會摧毀歐元與美元的國際金融信譽，面臨反彈。",
+    "choices": [
+      {
+        "text": "聯邦自行修法，單方面全額沒收並劃撥作烏克蘭重建與防務採購基金，展示零容忍決心。",
+        "effects": {
+          "economy": -8,
+          "military": 12,
+          "diplomacy": -12,
+          "approval": 15,
+          "industry": 0,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "折衷方案：不直接沒收，改以這三千億外匯孳息和擔保利潤，做超低息三十年『和平重建債券』。",
+        "effects": {
+          "economy": 8,
+          "military": 5,
+          "diplomacy": 14,
+          "approval": 5,
+          "industry": 2,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "堅決反對沒收，維持法治原則，將資產保留作為未來推動俄烏停火談判時的終極籌碼。",
+        "effects": {
+          "economy": 12,
+          "military": -10,
+          "diplomacy": 10,
+          "approval": -14,
+          "industry": -5,
+          "stockMarket": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "category": "伊朗與中東衝突",
+    "title": "美軍約旦基地遭空襲",
+    "description": "美軍在約旦境內靠近敘利亞邊境的『22號塔』前哨基地遭遇無人機突襲，造成3名美軍牺牲、數十名受傷。情報指兇手為德黑蘭直接資助的激進組織。",
+    "choices": [
+      {
+        "text": "下令對敘利亞和伊拉克境內與伊朗民兵有關的數十處兵營、彈藥庫發動多輪猛烈毀滅空襲。",
+        "effects": {
+          "economy": -5,
+          "military": 16,
+          "diplomacy": -10,
+          "approval": 14,
+          "industry": 2,
+          "stockMarket": -8
+        }
+      },
+      {
+        "text": "保持最大戰略克制，不進行大規模軍演，改為暗中加派特種部隊斬首指揮官，並發表秘密抗議。",
+        "effects": {
+          "economy": 8,
+          "military": -5,
+          "diplomacy": 12,
+          "approval": -12,
+          "industry": 0,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "與約旦及沙烏地阿拉伯成立防空情報同盟，由其加派反制雷達，並對伊方實施更緊密的資金凍結法制。",
+        "effects": {
+          "economy": 2,
+          "military": 10,
+          "diplomacy": 14,
+          "approval": 8,
+          "industry": 5,
+          "stockMarket": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "category": "伊朗與中東衝突",
+    "title": "霍爾木茲海峽扣押外籍油輪",
+    "description": "為反對美方對其油海運輸的制裁，伊朗革命衛隊在霍爾木茲海峽強行扣押了一艘美商租用的英籍大型超級油輪，指控其『涉嫌環境污染』，波斯灣緊張形勢飆升。",
+    "choices": [
+      {
+        "text": "派遣第五艦隊在波斯灣護航，對靠近的發動威懾性直升機開火，不惜爆發海上正面遭遇戰。",
+        "effects": {
+          "economy": -12,
+          "military": 18,
+          "diplomacy": -15,
+          "approval": 10,
+          "industry": 5,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "通過阿曼蘇丹進行秘密穿梭外交調解，提供部分被凍結的豁免人道經費交換釋放人船。",
+        "effects": {
+          "economy": 10,
+          "military": -10,
+          "diplomacy": 12,
+          "approval": -14,
+          "industry": -5,
+          "stockMarket": 10
+        }
+      },
+      {
+        "text": "大張旗鼓聯合英法日意等海軍，開啟在荷姆茲海域的聯合警戒巡查，迫使伊朗退縮關閉執法。",
+        "effects": {
+          "economy": -4,
+          "military": 12,
+          "diplomacy": 15,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "category": "股市與金融危機",
+    "title": "矽谷銀行破產風暴",
+    "description": "因美聯儲激進加息，全美第16大銀行『矽谷銀行（SVB）』爆發歷史罕見的恐慌性擠兌並在48小時內宣告破產倒閉。初創科技與全美中小銀行人人自危。",
+    "choices": [
+      {
+        "text": "聯邦央行與財政部啟動『系統性風險例外』條款，承諾對所有儲戶全額兜底，由央行提供貸款救濟。",
+        "effects": {
+          "economy": 8,
+          "military": 0,
+          "diplomacy": 5,
+          "approval": 16,
+          "industry": 10,
+          "stockMarket": 18
+        }
+      },
+      {
+        "text": "堅持聯邦存款保險（FDIC）法理，僅救助25萬以下儲存款，不干預高額儲戶，防止道德哈倫風險。",
+        "effects": {
+          "economy": -15,
+          "military": 0,
+          "diplomacy": 2,
+          "approval": -12,
+          "industry": -12,
+          "stockMarket": -18
+        }
+      },
+      {
+        "text": "協調華爾街大銀行（如花旗、摩根）進行低價打包重組兼併，白宮宣布不花費聯邦納稅人一分錢。",
+        "effects": {
+          "economy": 12,
+          "military": 0,
+          "diplomacy": 8,
+          "approval": 10,
+          "industry": 5,
+          "stockMarket": 12
+        }
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "category": "股市與金融危機",
+    "title": "底特律汽車工會大罷工",
+    "description": "全美汽車工人聯合會（UAW）發動針對底特律『三巨頭』通用、福特與斯泰蘭蒂斯的歷史性協同大罷工，要求在四年內加薪40%並恢復傳統養老金，大選銹帶選情告急。",
+    "choices": [
+      {
+        "text": "支持工會大基調，前往罷工糾察線（Picket line）聲援，督促汽車巨頭同意大幅加薪。",
+        "effects": {
+          "economy": -8,
+          "military": 0,
+          "diplomacy": 0,
+          "approval": 16,
+          "industry": -15,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "表態站在資方一邊，指責不切實際的薪酬要求會摧毀美本土製造業並加速新能源轉口外流。",
+        "effects": {
+          "economy": 12,
+          "military": 0,
+          "diplomacy": -2,
+          "approval": -18,
+          "industry": 14,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "進行和談斡旋，提出由聯邦在綠能發展基金上給予車廠免稅優惠，換取勞資雙方妥協加薪25%。",
+        "effects": {
+          "economy": 8,
+          "military": 0,
+          "diplomacy": 2,
+          "approval": 8,
+          "industry": 8,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "category": "通貨膨脹與聯準會",
+    "title": "戰略石油儲備耗盡危機",
+    "description": "為在選舉前壓制驚人高油價，白宮已累計釋放了超過兩億桶戰略石油儲備（SPR），降至四十年來最低點。若遇緊急地緣能源斷供，防務安全將備受威脅。",
+    "choices": [
+      {
+        "text": "宣布無限期暫停進一步平抑釋放，強打『本土獨立供能』，放寬開採許可重填油庫。",
+        "effects": {
+          "economy": -8,
+          "military": 14,
+          "diplomacy": -5,
+          "approval": -8,
+          "industry": 10,
+          "stockMarket": -5
+        }
+      },
+      {
+        "text": "繼續釋放儲備對抗通膨！重申工薪族的加油生計比短期儲備安全更具壓倒性優勢。",
+        "effects": {
+          "economy": 10,
+          "military": -12,
+          "diplomacy": 5,
+          "approval": 15,
+          "industry": -5,
+          "stockMarket": 12
+        }
+      },
+      {
+        "text": "宣布以每桶 75 美元價格陸續招標回購重新注油，同時發行國家石油國防長期主權債券融資。",
+        "effects": {
+          "economy": 5,
+          "military": 8,
+          "diplomacy": 8,
+          "approval": 5,
+          "industry": 5,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "category": "通貨膨脹與聯準會",
+    "title": "食品物價上漲與壟斷爭議",
+    "description": "核心通膨頑強，大型超市一般雞肉、蛋、麵包年漲30%。白宮對手抨擊這是『假新聞通膨災難』，反對黨則要求對卡特爾（Kroger等超市連鎖）實施全面反壟斷拆分。",
+    "choices": [
+      {
+        "text": "派司法部全面啟動歷史性反壟斷調查與訴訟，甚至開罰數億美元處以高額反競爭款項。",
+        "effects": {
+          "economy": -5,
+          "military": 0,
+          "diplomacy": 0,
+          "approval": 15,
+          "industry": -12,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "拒絕政府干預！指責通膨根本是由於不可靠、過度激進的民生預算放水的後遺症，要求縮流預算。",
+        "effects": {
+          "economy": 12,
+          "military": 0,
+          "diplomacy": 2,
+          "approval": -14,
+          "industry": -2,
+          "stockMarket": 8
+        }
+      },
+      {
+        "text": "實行臨時的食品出口禁令，將大宗美國小麥玉米肉類優先留底本土，迫使超市巨頭折讓利潤。",
+        "effects": {
+          "economy": -10,
+          "military": 0,
+          "diplomacy": -10,
+          "approval": 12,
+          "industry": -8,
+          "stockMarket": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "category": "非法移民與邊境問題",
+    "title": "庇護城市瀕臨預算超載",
+    "description": "德州州長派專車陸續將數萬名走線庇護難民運往紐約、芝加哥等民主黨庇護城鎮。紐約市長高聲喊冤，警告財政不堪重負，治安面臨雪崩危局。",
+    "choices": [
+      {
+        "text": "緊急宣布國家一級邊境治安危機，扣留對德州的特定財政分撥，強制德州自行攔阻。",
+        "effects": {
+          "economy": -2,
+          "military": 10,
+          "diplomacy": -5,
+          "approval": -15,
+          "industry": -4,
+          "stockMarket": -2
+        }
+      },
+      {
+        "text": "通過修法放寬工作簽證和工卡發放速度，允許庇護城難民速進底層工廠就業解決物業勞動荒。",
+        "effects": {
+          "economy": 14,
+          "military": -5,
+          "diplomacy": 5,
+          "approval": -12,
+          "industry": 8,
+          "stockMarket": 10
+        }
+      },
+      {
+        "text": "緊急提撥 20 億美元臨時邊境特別庇護應急專款支援受害城市，並強化海關查驗遣送速度。",
+        "effects": {
+          "economy": -8,
+          "military": 5,
+          "diplomacy": 5,
+          "approval": 10,
+          "industry": 2,
+          "stockMarket": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "category": "非法移民與邊境問題",
+    "title": "芬太尼管制與跨國中前體查緝",
+    "description": "美國每天因芬太尼濫用喪命人數高達數百人。情報鏈顯示，化學前體主要產自亞洲特定工廠，經由墨西哥毒梟提煉後，滲透進入美國邊境網絡進行分銷。",
+    "choices": [
+      {
+        "text": "在邊界全線部署國民兵進行車載紅外線逐案大排查，對進口卡車全數開箱查抄，不惜造成通關大打結。",
+        "effects": {
+          "economy": -15,
+          "military": 15,
+          "diplomacy": -10,
+          "approval": 16,
+          "industry": -5,
+          "stockMarket": -12
+        }
+      },
+      {
+        "text": "召開高層多邊和會，對毒源前體涉及的海外特定化工與金融實體發施二級金融制裁卡死其融資。",
+        "effects": {
+          "economy": -4,
+          "military": 5,
+          "diplomacy": 12,
+          "approval": 10,
+          "industry": 2,
+          "stockMarket": -2
+        }
+      },
+      {
+        "text": "在不課加海關排查的前提下，提撥20億元加強全美戒毒社區、那洛酮（解毒劑）普及發放與自救教育。",
+        "effects": {
+          "economy": -8,
+          "military": 0,
+          "diplomacy": 5,
+          "approval": 8,
+          "industry": 5,
+          "stockMarket": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "category": "AI與晶片競爭",
+    "title": "限制高階 AI 模型開源禁令",
+    "description": "安全顧問提出警告，若允許像 GPT-4 級別的 AI 超大模型開源，可能導致對手與極端組織輕易利用其優化生化武器與高新導彈代碼。是否限制開源？",
+    "choices": [
+      {
+        "text": "強力施加最嚴禁令，禁止任何美外溢十億級參數以上大模型開源，保護美國絕對技術護城河。",
+        "effects": {
+          "economy": -8,
+          "military": 12,
+          "diplomacy": -5,
+          "approval": 8,
+          "industry": 15,
+          "stockMarket": -10
+        }
+      },
+      {
+        "text": "反對開源限制！指責保護主義會扼殺矽谷新創企業對大算力底層架構的演進，造成反效果。",
+        "effects": {
+          "economy": 15,
+          "military": -5,
+          "diplomacy": 2,
+          "approval": -6,
+          "industry": -5,
+          "stockMarket": 15
+        }
+      },
+      {
+        "text": "折衷方案：成立『聯邦前沿AI安理會』，對開源發布實行密碼學防護查哨和差別授權執照模式。",
+        "effects": {
+          "economy": 8,
+          "military": 8,
+          "diplomacy": 5,
+          "approval": 5,
+          "industry": 12,
+          "stockMarket": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "category": "AI與晶片競爭",
+    "title": "英偉達閹割版 H20 晶片風波",
+    "description": "為反對白宮對華的高端算力出口限制，晶片老大英偉達特意推出了算力低於法案臨界點、但合乎法案紅線的閹割版 AI 晶片『H20』，大量對華出口。這招致國會強硬派質疑其動機。",
+    "choices": [
+      {
+        "text": "修訂法案紅線，追加禁止任何透過定製和降算力來試圖規避法律意旨的出口，予以完全封殺。",
+        "effects": {
+          "economy": -12,
+          "military": 12,
+          "diplomacy": -10,
+          "approval": 10,
+          "industry": 15,
+          "stockMarket": -18
+        }
+      },
+      {
+        "text": "默許這一行為，認識到若完全卡死，將使對手加速重資自產華為晶片，並嚴重重創英偉達等本土巨頭利潤。",
+        "effects": {
+          "economy": 14,
+          "military": -2,
+          "diplomacy": 5,
+          "approval": -5,
+          "industry": 5,
+          "stockMarket": 16
+        }
+      },
+      {
+        "text": "與晶片商高層約談，允許英偉達提供替代性的非敏感雲計算合約服務（不轉移晶片所有權）來分攤利潤損失。",
+        "effects": {
+          "economy": 8,
+          "military": 5,
+          "diplomacy": 5,
+          "approval": 5,
+          "industry": 10,
+          "stockMarket": 10
+        }
+      }
+    ]
+  }
+]

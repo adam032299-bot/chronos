@@ -1,0 +1,21 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "Abstract data schema representing registered users.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique authentication UID of the logged-in user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the registered user."
+        }
+      },
+      "required": ["userId", "email"]
+    }
+  },
+  "firestore": {}
+}
