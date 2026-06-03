@@ -1115,6 +1115,8 @@ export default function App() {
         
         // Reset ending and devForcedEnding
         setDevForcedEnding(null);
+        setReport(null);
+        setIsGeneratingReport(false);
 
         // Reset Crisis system
         setActiveCrisis(null);
@@ -1684,7 +1686,7 @@ export default function App() {
                 <div className="bg-slate-900 border border-amber-500/20 p-5 rounded-2xl">
                   <h3 className="text-lg font-bold text-amber-500 mb-2">🏆 歷史推演結算</h3>
                   <p className="text-base text-slate-300 mb-4">{activeEnding.title}</p>
-                  <button onClick={fetchStartScenario} className="w-full py-3 bg-amber-500 text-black font-extrabold rounded-xl text-base transition cursor-pointer">重開歷史推演</button>
+                  <button onClick={handleRestartGame} className="w-full py-3 bg-amber-500 text-black font-extrabold rounded-xl text-base transition cursor-pointer">重新挑戰</button>
                 </div>
               ) : showResultPanel && lastSelectedChoice && lastImpacts ? (
                 /* Outcome evaluation results panel inside core strategic view */
@@ -2014,11 +2016,11 @@ export default function App() {
                 </div>
 
                 <button
-                  onClick={fetchStartScenario}
+                  onClick={handleRestartGame}
                   className="mt-2 w-full py-3 bg-[#110e17] hover:bg-[#1a0e1c] border border-amber-500/20 text-amber-400 font-bold rounded-xl text-xs uppercase tracking-widest transition flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <RefreshCw className="w-4 h-4" />
-                  重新開始最高推演
+                  重新挑戰最高推演
                 </button>
               </div>
             </div>
@@ -2791,8 +2793,8 @@ export default function App() {
           <div className="group/restart relative w-full mt-auto shrink-0 pt-4 border-t border-slate-900/40">
             <button
               id="restart-game-btn"
-              onClick={fetchStartScenario}
-              title="重新開始"
+              onClick={handleRestartGame}
+              title="重新挑戰"
               className="group relative bg-[#110e17] hover:bg-[#1a0e1c] border border-amber-500/20 text-amber-400 hover:text-amber-300 rounded-xl flex items-center overflow-hidden h-12 transition-all duration-350 active:scale-95 cursor-pointer shadow-[0_0_15px_rgba(245,158,11,0.05)] shrink-0 w-full"
               style={{
                 transition: "all 350ms cubic-bezier(0.4, 0, 0.2, 1)",
@@ -2810,11 +2812,11 @@ export default function App() {
                     : "opacity-100 visible duration-200 delay-150"
                 }`}
               >
-                重新開始
+                重新挑戰
               </span>
               {isSidebarCollapsed && (
                 <div className="fixed left-[84px] z-50 pointer-events-none opacity-0 group-hover/restart:opacity-100 transition-opacity duration-200 bg-slate-900/95 border border-slate-800 px-3 py-2 rounded-xl text-xs font-bold text-[#f5a623] whitespace-nowrap shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex items-center gap-2">
-                  <span>🔄</span> <span>重新開始</span>
+                  <span>🔄</span> <span>重新挑戰</span>
                 </div>
               )}
             </button>
@@ -2940,20 +2942,18 @@ export default function App() {
                     {/* Action buttons footer */}
                     <div className="flex flex-col md:flex-row gap-4 pt-6 border-t border-slate-800/80 mt-2">
                       <button
-                        onClick={fetchStartScenario}
-                        className="flex-1 py-4 md:py-5 bg-amber-500 hover:bg-amber-400 font-black text-sm md:text-base text-black uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] active:scale-95 flex items-center justify-center gap-2"
+                        onClick={handleRestartGame}
+                        className="flex-1 py-4 md:py-5 bg-amber-500 hover:bg-amber-400 font-black text-sm md:text-base text-black uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] active:scale-95 flex items-center justify-center gap-2 animate-pulse"
                       >
                         <RefreshCw className="w-5 h-5" />
-                        重新執政
+                        重新挑戰
                       </button>
                       <button
-                        onClick={() => {
-                           alert("已複製結果分享連結！");
-                        }}
+                        onClick={exportEndingCard}
                         className="flex-1 py-4 md:py-5 bg-slate-800 border-2 border-slate-700 hover:bg-slate-700 font-black text-sm md:text-base text-white uppercase tracking-widest rounded-xl transition-all cursor-pointer active:scale-95 flex items-center justify-center gap-2"
                       >
                         <Send className="w-5 h-5" />
-                        分享結果
+                        匯出結局分享卡
                       </button>
                     </div>
 
@@ -4554,12 +4554,12 @@ export default function App() {
                   STATISTICS MONITOR • 國家關鍵屬性
                 </span>
                 {[
-                  { label: "經濟與金融", val: activeEnding.stats.economy, color: "text-emerald-400", barClass: "bg-emerald-500" },
-                  { label: "國防軍事", val: activeEnding.stats.military, color: "text-blue-400", barClass: "bg-blue-500" },
-                  { label: "外交同盟", val: activeEnding.stats.diplomacy, color: "text-violet-400", barClass: "bg-violet-500" },
-                  { label: "民意支持", val: activeEnding.stats.publicOpinion, color: "text-amber-500", barClass: "bg-amber-500" },
-                  { label: "科技與產業", val: activeEnding.stats.industry, color: "text-cyan-400", barClass: "bg-cyan-500" },
-                  { label: "關市與股市", val: activeEnding.stats.market, color: "text-rose-450", barClass: "bg-rose-500" }
+                  { label: "經濟", val: activeEnding.stats.economy, color: "text-emerald-400", barClass: "bg-emerald-500" },
+                  { label: "軍事", val: activeEnding.stats.military, color: "text-blue-400", barClass: "bg-blue-500" },
+                  { label: "外交", val: activeEnding.stats.diplomacy, color: "text-violet-400", barClass: "bg-violet-500" },
+                  { label: "民意", val: activeEnding.stats.publicOpinion, color: "text-amber-500", barClass: "bg-amber-500" },
+                  { label: "科技", val: activeEnding.stats.industry, color: "text-cyan-400", barClass: "bg-cyan-500" },
+                  { label: "股市", val: activeEnding.stats.market, color: "text-rose-450", barClass: "bg-rose-500" }
                 ].map((item, idx) => (
                   <div key={idx} className="flex flex-col gap-1 text-left">
                     <div className="flex justify-between items-center text-xs">

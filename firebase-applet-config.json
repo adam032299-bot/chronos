@@ -1,10 +1,10 @@
 {
-  "projectId": "remixed-project-id",
-  "appId": "remixed-app-id",
-  "apiKey": "remixed-api-key",
-  "authDomain": "remixed-auth-domain",
-  "firestoreDatabaseId": "remixed-firestore-database-id",
-  "storageBucket": "remixed-storage-bucket",
-  "messagingSenderId": "remixed-messaging-sender-id",
-  "measurementId": "remixed-measurement-id"
+  "projectId": "clean-wonder-707pf",
+  "appId": "1:927650741657:web:854ff34187f92c1cf6e708",
+  "apiKey": "AIzaSyAjuyLoY3JSP74Wu_HwSWiz2hYlbx56RHk",
+  "authDomain": "clean-wonder-707pf.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-ebd8e26a-91a8-4ebf-9bc2-4f0bbd793258",
+  "storageBucket": "clean-wonder-707pf.firebasestorage.app",
+  "messagingSenderId": "927650741657",
+  "measurementId": ""
 }
