@@ -118,88 +118,172 @@ function getEnding(gameState: { stats: GameStats; history: any[]; turn: number }
 const generateHistoricalReview = (stats: GameStats, endingName: string): string[] => {
   const endingPools: Record<string, string[]> = {
     "美國世紀 2.0": [
-      "美國重新確立全球領導地位。",
-      "你的科技政策被視為美國復興的重要轉折點。",
-      "部分歷史學家將你的任期與雷根時代相提並論。",
-      "全方位實力優勢使美國進入了無可挑戰的霸權期。",
-      "美元體系與美軍力量以前所未有的姿態覆蓋全球。"
+      "全球所有國家的電視台每天都在直播你的白宮簡報，且收視率超越當地的本土肥皂劇。",
+      "歷史學家普遍認為，這個時代的美國連空氣中都瀰漫著關稅和晶片的香味。",
+      "白宮草坪上的金字招牌「Make America Great Again」被升等為國家頭號文化遺產。",
+      "歐盟各國首腦在午餐會上私下練習如何用德語和法語模仿你的招牌手勢。",
+      "外太空的衛星訊號全部被強行接入你的社交媒體廣播頻道。",
+      "由於美金過於強勢，部分小國直接宣布將你的簽名作為官方儲備貨幣。",
+      "世界各地的年輕人開始自發在萬聖節裝扮成你的經典金髮配藍西裝套裝。",
+      "川普大廈在全球主要首都正式取代了當地地標的觀光熱度。",
+      "一群矽谷創業者試圖將你的推特語錄用區塊鏈技術永久封裝並射向太陽系邊緣。",
+      "紐約時報編輯部因找不到任何施政漏洞，集體請假一週進行心理諮商。",
+      "歷史學家承認，這十二回合的決策簡直像是開了「文明帝國」的上帝外掛。",
+      "美國總統第二任期的結算分數，至今仍高高掛在國會山莊的榮譽榜首位。"
     ],
     "中國世紀": [
-      "中國在你的任期後超越美國成為全球最大強權。",
-      "北京逐漸取代華盛頓成為國際決策中心。",
-      "許多學者認為這是全球權力轉移的重要分水嶺。",
-      "美國長期的霸權在此刻畫下休止符。",
-      "地緣政治舞台的重心正式朝太平洋西岸傾斜。"
+      "北京正式取代華府成為全球政治和時尚的重要指標中心。",
+      "華爾街的頂級交易員們在下班後，開始研究如何用筷子姿勢更優雅地吃牛排。",
+      "昔日繁華的紐約曼哈頓街頭，現在最熱門的加盟店是各種正宗四川麻辣火鍋。",
+      "歐美知名大學的商學院將中文列為唯一的必修外語，否則無法畢業。",
+      "你的個人總統圖書館在卸任三個月後，被新合夥人悄悄改造成了高檔火鍋店。",
+      "矽谷的研發團隊開始習慣在寫代碼前，先看一遍最新的東方科技政策白皮書。",
+      "白宮的新聞發言人不再需要使用英文，直接用流利的普通話宣布今日行程。",
+      "全球的脫口秀演員集體失業，因為最幽默的諷刺素材已經在國際現實中成真。",
+      "華盛頓特區的櫻花樹下，現在到處都是前來考察如何融入東方文化的歐美智庫。",
+      "英國議會因討論是否引進海外新規則而爆發了連續三十個小時的激烈爭論。",
+      "歷史教科書將你的十二回合任期，定位為「太平洋權力天平的極速位移期」。",
+      "你的前任閣員們現在正忙著在短影音平台上，直播傳授如何與東方市場打交道。"
     ],
     "第三次世界大戰": [
-      "台海危機最終演變為全球性軍事衝突。",
-      "外交失敗被認為是戰爭爆發的重要原因。",
-      "這場衝突被列為21世紀最重大的國際災難之一。",
-      "常規性戰略誤判引發了不可逆的連鎖反應。",
-      "戰火幾乎波及了所有的主要地緣經濟區。"
+      "全球各大軍火公司的董事長聯名寄給白宮一張純金打造的「終身傑出貢獻感謝卡」。",
+      "國際關係學教授們興奮地宣布，他們獲得了未來半個世紀都寫不完的論文題材。",
+      "聯合國的中央伺服器因為在同一個早晨發送了太多次「極度緊急警告」而集體崩潰。",
+      "你的國家安全顧問在退休回憶錄中直言，這十二回合是他人生中血壓起伏最大的日子。",
+      "遊戲玩家們在社群論壇上一致達成共識：下次重玩絕對不要再選那個外交選項。",
+      "地球防空避難所的設計師們，將你的肖像尊稱為「推動避難產業大躍進的靈魂推手」。",
+      "歷史學者在記錄這段歷史時，鋼筆的墨水通常因為激動而劃破了三張考證紙。",
+      "華盛頓特區與盟邦首腦的緊急熱線鈴聲，直接被混音師錄下來做成了全球百大夜店舞曲。",
+      "瑞士的銀行保險箱在此期間被全球富豪的避險資產塞到連牙籤都放不進去。",
+      "外星文明的觀測報告中寫道：這個藍色行星上的十二回合決策，極具爆破視覺效果。",
+      "諾貝爾和平獎委員會在該年度決定，將高達數百萬的獎金全數改買消防器材。",
+      "後世的戰略教科書一致認為：這是將「在懸崖邊緣跳芭蕾舞」發揮到極致的範例。"
     ],
     "美國衰敗": [
-      "美國在你的任期內失去部分全球影響力。",
-      "經濟衰退削弱了盟友對美國的信心。",
-      "後世將此時期視為美國霸權衰落的重要起點。",
-      "內部撕裂與外部壓力使聯邦政府陷入長期癱瘓。",
-      "美國開始進行漫長且痛苦的全球戰略收縮。"
+      "你的整套內閣經濟施政報告，被世界百大商學院收錄進了失敗案例的經典教材。",
+      "華爾街的投資大班們一聽到你的名字，心率監測儀就會發出刺耳的警告聲。",
+      "美國普通民眾在感恩節餐會上，無比溫馨地懷念起當年通膨率「只有」5%的幸福時光。",
+      "前任財政部長在卸任當天就關閉了手機，選擇前往懷俄明州的原始森林裡隱居避世。",
+      "美聯儲的官員們在開會時，需要先深呼吸三次，並默唸「一切都是幻覺」來穩定情緒。",
+      "全球的旅行社開始推出「尋找失落美利堅風華」的探險團，且意外在歐洲爆紅。",
+      "白宮頂樓的草坪裁剪預算被大砍，現在看起來更像是一座充滿生態多樣性的荒野公園。",
+      "美國大兵在海外軍事基地最常做的事，是跟當地居民交換巧克力與基礎生活物資。",
+      "歷史學家普遍認為，這個時期的白宮智囊團隊，人均決策智商處於歷史極值。",
+      "主流媒體在深夜節目中，特意製作了長達三小時的黃金探討：一切究竟是從哪一回合開始搞砸的？",
+      "國債鐘的指針因為滾動速度過快，導致顯示螢幕發生了物理性質的短路與冒煙。",
+      "美元在全球貨幣市場上的地位，目前大概和經典桌遊《大富翁》裡面的紙鈔差不多。"
     ],
     "AI科技霸權": [
-      "美國成功掌握人工智慧革命的主導權。",
-      "你的科技政策重塑了全球產業格局。",
-      "這段時期被稱為AI黃金時代的開端。",
-      "矽谷成為了實質意義上的全球資源分配中心。",
-      "美國憑藉演算法與算力優勢拉開了與他國的世代差距。"
+      "白宮的總統發言人在開會時突然忘記台詞，隨後承認剛才只是耳機裡的AI斷線了。",
+      "全球的GPU顯卡價格一度飆升超越黃金，使得電子遊戲玩家對你的內閣恨之入骨。",
+      "矽谷的一群狂熱工程師，偷偷將你的生平成就做成了神經網絡演算法代碼貼在核心機房入口。",
+      "ChatGPT等主流AI模型在提及你的施政決策時，會自動彈出「國家級智慧神蹟」的標註。",
+      "人工智慧發展史課本中，你的名字與「矽基生命踏入白宮」被安排在同一個章節。",
+      "你的智囊團在第十回合後，其實就已經被代碼自動生成的虛擬助理團隊全面接管。",
+      "世界各地的伺服器機房現在供奉的不是綠色椰椰，而是你微瞇著眼、豎起大拇指的簽名照。",
+      "歐盟的科技監理官在看見白宮送來的算力發展藍圖後，集體申請了提早退休。",
+      "人類有史以來第一個自覺意識AI，其給出的第一個指令是「將關稅稅率調高200%」。",
+      "歷史考證會議的紀錄官承認，他們現在正在用AI為你的十二回合精妙決策編寫詩歌。",
+      "白宮的新水電預算中，超級伺服器冷卻系統電費的比重，首次超過了所有官員的薪資總和。",
+      "後世科幻小說將你的任期描寫為「人類自願將方向盤交給代碼運算的最佳時刻」。"
     ],
     "華爾街帝國": [
-      "美國資本市場進入空前繁榮時期。",
-      "全球資金大量流向華爾街。",
-      "經濟學界將此階段視為金融霸權的巔峰。",
-      "股市屢創新高掩蓋了深層次的實體經濟隱患。",
-      "資本的力量在此期間達到了干預國家政策的極致。"
+      "華爾街的牛市雕像周圍，被交易員們用紅絲帶、牛舌餅與你的語錄精心裝飾得密密麻麻。",
+      "美金的滾動速度在你的任期尾聲，快到超出了聯邦儲備系統印鈔機的物理極限。",
+      "當代歷史學家至今仍懷疑，你的內閣是不是秘密將德州撲克的職業選手聘為了財政高級顧問。",
+      "紐約證交所的開盤鐘聲，在你的特許下被改成了一段長達十秒的澎湃搖滾樂。",
+      "矽谷和西雅圖的主流科技新創，其估值加起來甚至只能買下紐約曼哈頓的半條街。",
+      "金融衍生性商品的種類，在你的執政之下擴張到了連精算大師都無法看懂的宇宙維度。",
+      "全球中央銀行的總裁們每天早晨醒來，第一件事就是上網搜你的名字來看今天的大盤走勢。",
+      "理論物理學家和高級金融學家在白宮合辦了一場「如何用關稅預測股市引力波」的論壇。",
+      "億萬富豪名單的更新頻率快到了連福布斯雜誌的印刷廠都來不及修改封面名字。",
+      "美國普通民眾的退休金帳戶數值極高，但只能用來買華爾街發行的「未來概念股票」。",
+      "巴菲特在一次非公開訪談中開懷大笑，表示他在這一回合的決策中看到了真正的冒險精神。",
+      "聯邦財政部在報告中指出，這個任期的利潤高到甚至可以買下三個相鄰的開發中小國。"
     ],
     "自由世界領袖": [
-      "美國成功重建民主陣營的凝聚力。",
-      "多項國際危機在外交談判下獲得控制。",
-      "你的任期被視為自由世界合作的典範。",
-      "新大西洋主義取得了豐碩的戰略成果。",
-      "全球多邊協議的簽署有效遏制了威權主義的擴張。"
+      "歐盟盟邦的首腦們在峰會結束後，自發在布魯塞爾總部門口為你合唱了一首聖歌。",
+      "歷史教科書將你的十二回合任期，公認為是現代外交談判藝術與「糖與大棒」的最高傑作。",
+      "白宮的新聞熱線在白天幾乎沒有停過，因為各國元首都在排隊詢問你的晚宴邀請。",
+      "聯合國大會主辦方特意在你的專用發言台下，添置了一副防震止滑的高級人體工學軟墊。",
+      "地緣政治智庫的資深學者驚嘆，你的內閣團隊把本該風雨飄搖的世界硬生生變成了一盤和棋。",
+      "國際政治大師在談及你的外交佈局時，常常將你的微操作與二十世紀的梅特涅相提並論。",
+      "世界各大主要城市的和平大道或自由廣場，在此期間不少都爭相申請改用你的名字命名。",
+      "就連最挑剔的外交官也不得不承認，你對各國利益的精確拆解就像是用雷射手術刀切蛋糕。",
+      "全球多邊貿易協議的文本堆起來，其高度甚至可以直接用來當作白宮的防彈防禦牆。",
+      "你的國防部長因為外交手段過於好用，整個任期內大半時間都在辦公室百無聊賴地打高爾夫。",
+      "諾貝爾委員會甚至一度考慮這任期的和平貢獻，是否值得再打破常規頒發給你一次。",
+      "歷史學家寫道：「他用最溫和好聽的句子，在全球地緣戰略中索取了最豐厚的成果。」"
     ],
     "川普王朝": [
-      "你的支持率長期維持歷史高點。",
-      "你成為21世紀最具影響力的政治人物之一。",
-      "你的決策風格至今仍是學界爭論焦點。",
-      "民粹主義與新保守主義在你的帶領下完成融合。",
-      "你徹底重塑了美國的政治版圖與社會結構。"
+      "習近平在非公開場合被拍到正在認真研讀你的名著《交易的藝術》之東方精裝修訂版。",
+      "華盛頓特區中心出現了一座你的黃金雕像，但因為光芒太過耀眼而引起了直升機飛行的混亂。",
+      "全球歷史學家在各大電視節目的圓桌會議上，至今仍在爭論你到底是曠世天才還是運氣好。",
+      "佛羅里達的海湖莊園，在此期間的觀光遊客量與排隊人數，歷史性地超越了奧蘭多迪士尼。",
+      "你的每一條深夜推特文章，在發布後的十分鐘內就會被列為美國國家級核心歷史文物。",
+      "全球主要國家的元首助理在每天清晨，都必須提前將你的社交媒體發文翻譯成當地語言。",
+      "內閣成員在向你報告工作前，人均需要接受長達一週的「如何面對川普氣場」的專業特訓。",
+      "白宮西廂的橢圓形辦公室裡，那張著名的堅毅桌周圍，現在擺滿了各式各樣的「大發財」掛件。",
+      "媒體記者在提出挑戰性問題時，總是會下意識地先做好被你在社交媒體上發文嘲諷的準備。",
+      "歷史學者承認，這十二回合的推演中，你的決策風格完全打破了這顆星球上所有的常规政治定律。",
+      "共和黨的黨代表大會上，你的大合照被放大到了足以遮擋整棟會議中心穹頂的誇張比例。",
+      "後世在評估這段繁榮的頂峰時，不得不承認這是一場專屬於你個人風格的宏偉政治魔術。"
     ],
     "平衡大師": [
-      "你成功將危機控制在可承受的範圍內。",
-      "溫和派歷史學家讚揚你避免了極端風險的爆發。",
-      "在地緣摩擦最劇烈的時代，美國奇蹟般地保持了穩定。",
-      "你務實的各方妥協政策雖然缺乏戲劇性，但有效維持了國力。",
-      "這段時期後世被稱為「平息風暴的過渡年代」。"
+      "溫和派政治學者們在研討會上熱烈慶祝，因為你的施政終於讓他們睡了個連續的好覺。",
+      "你的各項施政數據圖表，長得整齊得就像是用精密游標卡尺在實驗室裡精細畫出來的一樣。",
+      "國際危機預警中心的紅色警報燈泡，在你的十二回合任期內，因為毫無用武之地而積滿了灰塵。",
+      "外交官們在退休回憶錄中親切地將你的外交風格，稱之為「全球地緣棋盤上的優雅太極拳」。",
+      "媒體記者在白宮記者會上最常發表的抱怨，是你的政策太過四平八穩，讓他們很難湊出煽動的新聞標題。",
+      "各大極端政治流派的領袖在接受訪問時，都覺得你的政策不合心意，但又找不到致命的痛點。",
+      "華爾街的量化交易系統因為市場波動率過低，一度觸發了「代碼可能存在系統性系統故障」的自檢。",
+      "歷史學家一致同意，這段時期堪稱是人類政壇上最偉大、最缺乏勁爆八卦的平靜過渡期。",
+      "你的首席政策顧問在回憶錄中透露，內閣團隊最常用的決策工具竟然是一台手動天平秤。",
+      "雖然沒有在世界歷史上留下震耳欲聾的巨響，但你成功讓這個帝國在風暴中穩穩滑行。",
+      "後世的政院教材將你的施政概括為：「完美的平庸，以及將危機消弭於未萌的最高政治藝術。」",
+      "熱愛觀看高難度政治秀的觀眾對此結局有些失望，但底層民眾和投資人都在為此暗自道謝。"
     ],
     "全民反對": [
-      "政治極化與施政失誤導致了歷史性的低支持率。",
-      "民眾對白宮的信任降至冰點，引發了強烈的反噬效應。",
-      "多位政治學專家將這個任期作為負面教材進行研究。",
-      "在任內累積的民怨最終導致執政團隊的信用破產。",
-      "這段時期是美國現代政治史上最動蕩的階段之一。"
+      "白宮門口的常駐抗議群眾首次形成了完整的商業街區，並開始提供限量版抗議周邊與咖啡。",
+      "你的最新民調支持率，在某些深夜時刻甚至落後給了白宮草坪上那隻每天負責除草的除草機。",
+      "你的名字在主流社交平台上，被自動偵測過濾系統關聯上了「不宜在飯後閱讀」的安全警示。",
+      "歷史學家們非常生動地將你的這十二回合，形容為「在雷區上進行的一場瘋狂花式滑冰」。",
+      "多個民間組織在白宮外牆上，集體投影出一副巨大的「謝謝你，川普，但下次真的別再決策了」的標語。",
+      "你的施政團隊成員在離職後，履歷表上的這段白宮顧問經歷通常會被用極粗的黑筆劃掉。",
+      "政治學考卷上的多重經典申論題，現在基本上都圍繞著「本任期是如何在每一道題都選錯」展開。",
+      "全球的主流媒體編輯部，因為每天暴增的吐槽新聞素材而不得不支付記者兩倍的加班費。",
+      "就連民意調查機構的問卷設計師也承認，他們不得不首次為「最討厭的決策」一欄增加新選項。",
+      "國會大廈的聽證會堂，在這個任期內創造了連續九十天沒有一天是不在激烈爭吵的歷史紀錄。",
+      "後世在撰寫本章歷史時，採用的段落大標題普遍是：「大崩塌：民意對戰術決策的歷史性反制」。",
+      "你的智囊核心團隊在卸任聚餐會上，最後做的一件事是向彼此發送保證「絕不對外透露內幕」的電子郵件。"
     ],
     "平穩防守": [
-      "美國在巨大的外部環境壓力下平穩著陸。",
-      "雖然沒有開創顛覆性的成就，但成功穩住了國家根基。",
-      "學者普遍認為這種保守的防禦性策略是當時的最佳解。",
-      "在激進與保守的浪潮中，你為美國爭取了緩衝的時間。",
-      "聯邦體制在你的維護下展現出了足夠的韌性。"
+      "白宮發言人在面對咄咄逼人的記者時，人均能做到連續微笑十五分鐘且不說出任何實質性內容。",
+      "學術界讚譽這是一段「沒有亮點、但也沒有棺材」的合格任期，堪稱大型防守奇蹟。",
+      "美元匯率的走勢圖平坦得像是一條正在沉睡中、毫無波折與雜訊的健康生理心電圖。",
+      "歷史學家承認，雖然這段歷史讀起來有點像老阿嬤的溫暖裹腳布，但至少國家根基非常安全。",
+      "國防部的將軍們在这个任期裡，最常做的事情是帶著放大鏡逐字逐句地複查採購合約中的細枝末節。",
+      "矽谷的科技巨頭罕見地對這屆政府非常滿意，因為他們在不受監管與補貼波動的折騰下度過了幾年。",
+      "各大國際博弈棋局在你的十二回合引導下，奇蹟般地維持了在冰點附近的脆弱和平。",
+      "民調專家坦言，大眾對你的支持率從來沒有突破過80%，但好消息是它也從未跌破過45%。",
+      "你的外交團隊在聯合國提過最多的提案，是關於「如何推遲或休會進行更充分的技術性探討」。",
+      "歷史教科書將你的這十二回合簡短概括為：「風雨飄搖的世紀大轉折期中，一艘拼命求穩的守成之船」。",
+      "卸任演講中你的用詞極度克制與簡練，以至於台下的記者甚至沒有記錄下任何一句可做標題的話。",
+      "雖然沒有波瀾壯闊的凱旋畫面，但你在最危急的十字路口為國家保留了最後的喘息火種。"
     ],
     "分歧的時代": [
-      "國家陷入了內外部挑戰的泥沼中。",
-      "黨派鬥爭使得重大法案屢遭擱置，削弱了國家總體競爭力。",
-      "社會的價值觀分裂在你的任期末期達到了頂峰。",
-      "未解決的核心問題為未來的動盪埋下了伏筆。",
-      "學者對這段時期的施政評價呈現極端兩極化。"
+      "國會參眾兩院的小型肢體衝突頻率，在這個任期內成功追平了某些新興發展中國家的混亂紀錄。",
+      "知名政治漫畫家在此期間發表的諷刺畫作總量，創下了自建國以來無與倫比的歷史新高。",
+      "後世分析你的十二回合施政，普遍得出的結論是：「內閣團隊的左右手在大部分時間裡都在打架」。",
+      "你的施政報告每一次發布，在網路上總能精準引起一場對立雙方人山人海的無端罵戰。",
+      "特區的印刷廠老闆私下表示，這幾年印刷「緊急罷免草案」和「反對抗議標語」賺得盆滿缽滿。",
+      "你的國防部長和國務卿，在多次聯合內閣會議上坐得比國際和平會議談判桌兩端還要遙遠。",
+      "美國的傳統盟邦在外派大使前，首次需要加開一門「如何解讀白宮前後矛盾政策」的特訓班。",
+      "歷史學家承認，他們根本無法寫出一份不帶任何強烈個人偏見的普通本任期政策分析報告。",
+      "華爾街的期權交易員因為政策的大起大落而集體患上了嚴重的神經衰弱。",
+      "當有人在各大論壇發帖詢問你施政的歷史功過時，回帖區通常會在三分鐘之內因爆發爭吵而被管理員強制關閉。",
+      "民意調查的極端兩極化，讓所有的資深調查專家感到幾十年積累的專業體系和統計模型徹底報廢了。",
+      "你的總統肖像在卸任後掛入歷史長廊時，主辦方不得不為其安裝防禦塗鴉和雷射警告警戒裝置。"
     ]
   };
 
@@ -2966,17 +3050,19 @@ export default function App() {
                     
                     {/* Custom CSS transitions for professional ending game aesthetic and timing */}
                     <style dangerouslySetInnerHTML={{ __html: `
-                      @keyframes endingTitleIn {
-                        from { opacity: 0; transform: scale(0.92); }
-                        to { opacity: 1; transform: scale(1); }
-                      }
-                      @keyframes endingCardIn {
-                        from { opacity: 0; transform: translateY(50px) scale(0.95); }
-                        to { opacity: 1; transform: translateY(0) scale(1); }
-                      }
-                      @keyframes endingFadeUp {
-                        from { opacity: 0; transform: translateY(30px); }
-                        to { opacity: 1; transform: translateY(0); }
+                      @keyframes endingPopIn {
+                        0% {
+                          opacity: 0;
+                          transform: translateY(32px) scale(0.92);
+                        }
+                        70% {
+                          opacity: 1;
+                          transform: translateY(-6px) scale(1.04);
+                        }
+                        100% {
+                          opacity: 1;
+                          transform: translateY(0) scale(1);
+                        }
                       }
                       @keyframes endingFlashGlow {
                         0%, 100% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.3), inset 0 0 15px rgba(245, 158, 11, 0.15); }
@@ -2987,72 +3073,32 @@ export default function App() {
                         50% { filter: drop-shadow(0 0 30px rgba(245, 158, 11, 0.9)) brightness(1.2); text-shadow: 0 0 20px rgba(245, 158, 11, 0.7), 0 0 40px rgba(255, 255, 255, 0.5); }
                       }
                       
-                      .ending-title-anim {
-                        animation: endingTitleIn 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
-                      }
-                      .ending-desc-anim {
-                        animation: endingFadeUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.2s;
+                      .ending-pop {
+                        opacity: 0;
+                        animation: endingPopIn 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both;
                       }
                       
-                      /* Staggered Reviews */
-                      .ending-review-anim-0 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.4s;
-                      }
-                      .ending-review-anim-1 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.5s;
-                      }
-                      .ending-review-anim-2 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.6s;
-                      }
+                      .ending-delay-1 { animation-delay: 0.1s; }
+                      .ending-delay-2 { animation-delay: 0.25s; }
+                      .ending-delay-3 { animation-delay: 0.4s; }
+                      .ending-delay-4 { animation-delay: 0.55s; }
+                      .ending-delay-5 { animation-delay: 0.7s; }
+                      .ending-delay-6 { animation-delay: 0.85s; }
+                      .ending-delay-7 { animation-delay: 1s; }
+                      .ending-delay-8 { animation-delay: 1.15s; }
+                      .ending-delay-9 { animation-delay: 1.3s; }
+                      .ending-delay-10 { animation-delay: 1.45s; }
                       
-                      /* Staggered Stats Metrics */
-                      .ending-stat-anim-0 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.7s;
-                      }
-                      .ending-stat-anim-1 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.78s;
-                      }
-                      .ending-stat-anim-2 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.86s;
-                      }
-                      .ending-stat-anim-3 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 0.94s;
-                      }
-                      .ending-stat-anim-4 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 1.02s;
-                      }
-                      .ending-stat-anim-5 {
-                        animation: endingFadeUp 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 1.1s;
-                      }
-                      
-                      .ending-score-card-anim {
-                        animation: endingCardIn 1s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 1.15s;
-                      }
                       .ending-badge-glow-anim {
                         animation: endingFlashGlow 2.5s infinite ease-in-out;
                       }
                       .ending-grade-shine-anim {
                         animation: flashShine 1.5s infinite ease-in-out;
                       }
-                      .ending-actions-anim {
-                        animation: endingFadeUp 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
-                        animation-delay: 1.4s;
-                      }
                     ` }} />
 
                     {/* 結局標題 */}
-                    <div className="flex flex-col items-center justify-center gap-4 ending-title-anim">
+                    <div className="flex flex-col items-center justify-center gap-4 ending-pop ending-delay-1">
                       <div className={`w-24 h-24 rounded-3xl flex items-center justify-center border ${activeEnding.ratingColor} shadow-[0_0_40px_rgba(245,158,11,0.15)]`}>
                         <span className="text-6xl">{activeEnding.icon}</span>
                       </div>
@@ -3062,7 +3108,7 @@ export default function App() {
                     </div>
 
                     {/* 結局描述 */}
-                    <div className="bg-slate-900/60 border-2 border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col ending-desc-anim">
+                    <div className="bg-slate-900/60 border-2 border-slate-700/50 rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden flex flex-col ending-pop ending-delay-2">
                       <div className="absolute inset-0 bg-gradient-to-b from-slate-800/20 to-transparent pointer-events-none" />
                       <p className="text-lg md:text-2xl text-slate-200 leading-relaxed font-bold whitespace-pre-wrap relative z-10 text-center">
                         {activeEnding.desc}
@@ -3076,7 +3122,7 @@ export default function App() {
                       </h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {generateHistoricalReview(activeEnding.stats, activeEnding.title).map((review, i) => (
-                           <div key={i} className={`bg-[#0f1424]/90 border border-indigo-500/30 rounded-xl p-6 flex flex-col justify-center items-center shadow-lg hover:border-indigo-400/50 transition-colors h-full min-h-[120px] ending-review-anim-${i}`}>
+                           <div key={i} className={`bg-[#0f1424]/90 border border-indigo-500/30 rounded-xl p-6 flex flex-col justify-center items-center shadow-lg hover:border-indigo-400/50 transition-colors h-full min-h-[120px] ending-pop ending-delay-10`}>
                               <p className="text-[15px] md:text-base text-slate-300 font-medium text-center leading-snug">
                                 {review}
                               </p>
@@ -3099,7 +3145,7 @@ export default function App() {
                           { key: 'industry', label: '科技與產業', icon: <Factory className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />, val: activeEnding.stats.industry, color: 'text-cyan-400', bg: 'bg-cyan-500' },
                           { key: 'market', label: '關市與股市', icon: <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-rose-450" />, val: activeEnding.stats.market, color: 'text-rose-450', bg: 'bg-rose-500' }
                         ].map((stat, i) => (
-                          <div key={stat.key} className={`bg-slate-950/80 border border-slate-700/60 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col gap-3 md:gap-4 shadow-xl relative overflow-hidden ending-stat-anim-${i}`}>
+                          <div key={stat.key} className={`bg-slate-950/80 border border-slate-700/60 rounded-xl md:rounded-2xl p-4 md:p-6 flex flex-col gap-3 md:gap-4 shadow-xl relative overflow-hidden ending-pop ending-delay-${4 + i}`}>
                             <div className="flex items-center justify-between z-10">
                               <div className="flex items-center gap-2 md:gap-3">
                                 {stat.icon}
@@ -3116,7 +3162,7 @@ export default function App() {
                     </div>
 
                     {/* 總統評分大型徽章 */}
-                    <div className="flex flex-col items-center justify-center mt-6 ending-score-card-anim">
+                    <div className="flex flex-col items-center justify-center mt-6 ending-pop ending-delay-3">
                       <div className="flex flex-col items-center justify-center bg-gradient-to-b from-amber-900/40 to-slate-900/80 border-2 border-amber-400 rounded-[2rem] w-full max-w-[320px] py-10 shadow-[0_0_50px_rgba(245,158,11,0.4)] ring-2 ring-amber-500/40 relative overflow-hidden ending-badge-glow-anim">
                         <div className="absolute inset-0 bg-amber-500/10 pointer-events-none" />
                         <div className="absolute top-0 w-full h-1/2 bg-amber-500/5" />
@@ -3143,7 +3189,7 @@ export default function App() {
                     </div>
 
                     {/* Action buttons footer */}
-                    <div className="flex flex-col md:flex-row gap-4 pt-6 border-t border-slate-800/80 mt-2 ending-actions-anim">
+                    <div className="flex flex-col md:flex-row gap-4 pt-6 border-t border-slate-800/80 mt-2 ending-pop ending-delay-10">
                       <button
                         onClick={handleRestartGame}
                         className="flex-1 py-4 md:py-5 bg-amber-500 hover:bg-amber-400 font-black text-sm md:text-base text-black uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.4)] active:scale-95 flex items-center justify-center gap-2"
